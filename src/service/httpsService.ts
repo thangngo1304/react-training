@@ -16,14 +16,19 @@ export default class HttpsService<T> {
    * @returns data after request
    */
   post = async (data: T): Promise<T> => {
-    const response = await fetch(this.fullPath, {
-      method: HTTP_METHOD.POST,
-      mode: 'cors',
-      cache: 'no-cache',
-      headers: API_HEADERS,
-      body: JSON.stringify(data)
-    });
-    return response.json();
+    try {
+      const response = await fetch(this.fullPath, {
+        method: HTTP_METHOD.POST,
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: API_HEADERS,
+        body: JSON.stringify(data)
+      });
+      return response.json();
+    } catch (error) {
+      return error
+    }
+
   };
 
   /**
@@ -33,9 +38,13 @@ export default class HttpsService<T> {
    * @returns data after request
    */
   get = async (query?: string): Promise<T[]> => {
-    const url = `${this.fullPath}?${query}`;
-    const response = await fetch(url);
-    return response.json();
+    try {
+      const url = `${this.fullPath}?${query}`;
+      const response = await fetch(url);
+      return response.json();
+    } catch (error) {
+      return error
+    }
   };
 
   /**
@@ -44,10 +53,14 @@ export default class HttpsService<T> {
    * @returns data after request
    */
   delete = async (id: string): Promise<T> => {
-    const response = await fetch(this.fullPath + `/${id}`, {
-      method: HTTP_METHOD.DELETE
-    });
-    return response.json();
+    try {
+      const response = await fetch(this.fullPath + `/${id}`, {
+        method: HTTP_METHOD.DELETE
+      });
+      return response.json();
+    } catch (error) {
+      return error
+    }
   };
 
   /**
@@ -56,11 +69,15 @@ export default class HttpsService<T> {
    * @body {object} data
    */
   put = async (data: T, id: string): Promise<T> => {
-    const response = await fetch(`${this.fullPath}/${id}`, {
-      method: HTTP_METHOD.PUT,
-      headers: API_HEADERS,
-      body: JSON.stringify(data)
-    });
-    return response.json();
+    try {
+      const response = await fetch(`${this.fullPath}/${id}`, {
+        method: HTTP_METHOD.PUT,
+        headers: API_HEADERS,
+        body: JSON.stringify(data)
+      });
+      return response.json();
+    } catch (error) {
+      return error
+    }
   };
 }
