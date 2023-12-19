@@ -33,7 +33,7 @@ import useProduct from 'hooks/useProduct';
 import { ToastType } from 'hooks/useToast';
 
 // Component
-import { AddCard, Button, Header, Modal, ProductCard, ProductModal, Spinner } from '..';
+import { AddCard, Button, Header, Modal, ProductCard, ProductModal, Spinner } from '../components';
 
 // Css
 import './main-page.css';
