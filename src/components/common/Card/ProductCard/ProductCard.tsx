@@ -1,4 +1,4 @@
-//
+// Type
 import { ProductProps } from 'types';
 // Component
 import Button from '@components/common/Button/Button';

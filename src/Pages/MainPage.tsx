@@ -1,7 +1,6 @@
 // Library
 import {
   FormEvent,
-  Fragment,
   Suspense,
   useContext,
   useState,
@@ -222,13 +221,12 @@ const MainPage = () => {
             <AddCard onClick={handleClickAdd} />
 
             {productList?.map((product) => (
-              <Fragment key={product.id}>
-                <ProductCard
-                  product={product}
-                  onDelete={handleClickDelete}
-                  onEdit={handleClickEditProduct}
-                />
-              </Fragment>
+              <ProductCard
+                key={product.id}
+                product={product}
+                onDelete={handleClickDelete}
+                onEdit={handleClickEditProduct}
+              />
             ))}
 
             {!isLoading && productList?.length === 0 && (
