@@ -1,4 +1,4 @@
-import { API_HEADERS, HTTP_METHOD, MOCK } from 'constants/common';
+import { API_HEADERS, HTTP_METHOD, MOCK } from 'constants/index';
 
 /**
  * @class HttpsService

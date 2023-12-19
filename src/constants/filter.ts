@@ -9,3 +9,6 @@ export const FILTER_ATTRIBUTE = {
   PRICE_ASC: 'price',
   PRICE_DESC: 'price&order=desc'
 };
+
+export const ORDER_DESC = 'desc';
+export const SORT_DEFAULT = 'name';
