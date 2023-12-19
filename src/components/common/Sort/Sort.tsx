@@ -1,6 +1,12 @@
-import { SortProps } from 'types';
-import SortOption from './SortOption/SortOption';
+import SortOption, { SortOptionProps } from './SortOption/SortOption';
 import './sort.css';
+
+export type SortProps = {
+  selectOptions: Array<SortOptionProps>;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  value?: string;
+};
+
 
 const Sort = ({ selectOptions, onChange, value }: SortProps) => {
   return (
