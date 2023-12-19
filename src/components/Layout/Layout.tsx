@@ -5,7 +5,8 @@ import { useContext } from 'react';
 import { ToastContext } from 'context/toast';
 
 // components
-import { Main, Toast } from '..';
+import MainPage from '../../Pages/MainPage';
+import { Toast } from '..';
 
 const Layout = () => {
   const { toast } = useContext(ToastContext);
@@ -14,7 +15,7 @@ const Layout = () => {
     <>
       <div className="container">
         <div className="wrapper">
-          <Main />
+          <MainPage />
         </div>
       </div>
 
