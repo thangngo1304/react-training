@@ -1,5 +1,19 @@
-import { InputFiledProps } from 'types';
+import { ReactNode, HTMLInputTypeAttribute } from 'react';
 import './input-field.css';
+
+export type InputFiledProps = {
+  inputClass?: string;
+  labelClass?: string;
+  htmlFor?: string;
+  label?: ReactNode;
+  type?: HTMLInputTypeAttribute;
+  name?: string;
+  value?: string;
+  placeholder?: string;
+  errorMessage?: string | number;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
 
 const InputField = ({
   name,

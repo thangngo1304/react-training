@@ -271,15 +271,13 @@ const MainPage = () => {
       {showModalProduct && (
         <Suspense fallback={<Spinner />}>
           <Modal title={titleModal}>
-            {
-              <ProductModal
-                product={modalProductData}
-                errorProductMessage={errorModalMessage}
-                onchange={handleChangeInput}
-                onSubmit={handleSubmit}
-                onCancelClick={handleCancelModal}
-              />
-            }
+            <ProductModal
+              product={modalProductData}
+              errorProductMessage={errorModalMessage}
+              onchange={handleChangeInput}
+              onSubmit={handleSubmit}
+              onCancelClick={handleCancelModal}
+            />
           </Modal>
         </Suspense>
       )}
