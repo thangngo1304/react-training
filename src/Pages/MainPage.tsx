@@ -33,7 +33,7 @@ import useProduct from 'hooks/useProduct';
 import { ToastType } from 'hooks/useToast';
 
 // Component
-import { AddCard, Button, Header, Modal, ProductCard, ProductModal, Spinner } from '../components';
+import { AddCard, Button, ConfirmModal, Header, Modal, ProductCard, ProductModal, Spinner } from '../components';
 
 // Css
 import './main-page.css';
@@ -250,20 +250,7 @@ const MainPage = () => {
       {showConfirmModal && (
         <Suspense fallback={<Spinner />}>
           <Modal classTitle="confirm-title" title="Are you sure you want to delete this food?">
-            <div className="form-btn">
-              <Button
-                children="Cancel"
-                type="button"
-                classButton="btn btn-cancel"
-                onClick={handleCancelConfirmModal}
-              />
-              <Button
-                type="button"
-                onClick={handleConfirm}
-                children="Confirm"
-                classButton="btn btn-cancel"
-              />
-            </div>
+            <ConfirmModal handleCancel={handleCancelConfirmModal} handleConfirm={handleConfirm} />
           </Modal>
         </Suspense>
       )}
