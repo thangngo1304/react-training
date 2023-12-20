@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Product } from 'types';
 import { queryParams } from 'helpers/buildQueryString';
 import { addProduct, deleteProductId, getProduct, updateProduct } from 'service/product';
@@ -15,6 +15,10 @@ const useProduct = () => {
   const [isQuery, setIsQuery] = useState({queryName: '', querySelect: FILTER_ATTRIBUTE.DEFAULT, queryPage: DEFAULT_PAGINATION})
   const [isLastPage, setIsLastPage] = useState(Boolean);
   const [productList, setProductList] = useState<Product[]>([]);
+
+  useEffect(() => {
+    getProductList(queryParam);
+  }, [isQuery.queryName, isQuery.querySelect, isQuery.queryPage]);
 
   const queryParam = {
     page: isQuery.queryPage,
