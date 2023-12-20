@@ -1,19 +1,14 @@
-import { Button } from "@components/index"
+import { Button } from '@components/index';
 
 type ConfirmProps = {
-  handleCancel: () => void
-  handleConfirm: () => void
-}
+  handleCancel: () => void;
+  handleConfirm: () => void;
+};
 
 const ConfirmModal = ({ handleCancel, handleConfirm }: ConfirmProps) => {
   return (
     <div className="form-btn">
-      <Button
-        children="Cancel"
-        type="button"
-        classButton="btn btn-cancel"
-        onClick={handleCancel}
-      />
+      <Button children="Cancel" type="button" classButton="btn btn-cancel" onClick={handleCancel} />
       <Button
         type="button"
         onClick={handleConfirm}
@@ -21,7 +16,7 @@ const ConfirmModal = ({ handleCancel, handleConfirm }: ConfirmProps) => {
         classButton="btn btn-cancel"
       />
     </div>
-  )
-}
+  );
+};
 
-export default ConfirmModal
+export default ConfirmModal;

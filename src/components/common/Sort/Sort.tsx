@@ -7,7 +7,6 @@ export type SortProps = {
   value?: string;
 };
 
-
 const Sort = ({ selectOptions, onChange, value }: SortProps) => {
   return (
     <select className="sort-value" id="sort" onChange={onChange} value={value}>

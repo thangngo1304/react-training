@@ -8,7 +8,6 @@ export type QueryParamsType<T extends Record<string, string | number | boolean>>
 export type AllowedQueryKeys<T extends Record<string, string | number | boolean>> =
   keyof QueryParamsType<T>;
 
-
 /**
  *
  * @param params params query string
