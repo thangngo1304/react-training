@@ -1,13 +1,5 @@
 // Library
-import {
-  FormEvent,
-  Suspense,
-  useContext,
-  useState,
-  useEffect,
-  useRef,
-  ChangeEvent
-} from 'react';
+import { FormEvent, Suspense, useContext, useState, useEffect, useRef, ChangeEvent } from 'react';
 
 // Context
 import { ToastContext } from 'context/toast';
@@ -32,7 +24,16 @@ import useProduct from 'hooks/useProduct';
 import { ToastType } from 'hooks/useToast';
 
 // Component
-import { AddCard, Button, ConfirmModal, Header, Modal, ProductCard, ProductModal, Spinner } from '../components';
+import {
+  AddCard,
+  Button,
+  ConfirmModal,
+  Header,
+  Modal,
+  ProductCard,
+  ProductModal,
+  Spinner
+} from '../components';
 
 // Css
 import './main-page.css';
@@ -42,36 +43,35 @@ const MainPage = () => {
   const {
     productList,
     getProductList,
-    searchName,
-    sortValue,
     queryParam,
     isLastPage,
-    pageProduct,
-    setSearchName,
-    setSortValue,
+    isQuery,
     handleUpdateProduct,
     handleDeleteProduct,
     handleGetShowMore,
     handleAddProduct,
+    setIsQuery
   } = useProduct();
 
   // useContext
   const { showToast } = useContext(ToastContext);
 
   // useState
-  const [errorModalMessage, setErrorModalMessage] = useState(defaultErrorMessage);
-  const [modalProductData, setModalProductData] = useState(defaultData);
-  const [showModalProduct, setShowModalProduct] = useState(false);
-  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [isModal, setIsModal] = useState({
+    modalTitle: '',
+    modalError: defaultErrorMessage,
+    modalProduct: false,
+    modalConfirm: false,
+    modalProductList: defaultData
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [getIdConfirmModal, setGetIdConfirmModal] = useState('');
-  const [titleModal, setTitleModal] = useState('');
 
   const pageRef = useRef(DEFAULT_PAGINATION);
 
   useEffect(() => {
     getProductList(queryParam);
-  }, [searchName, sortValue, pageProduct]);
+  }, [isQuery.queryName, isQuery.querySelect, isQuery.queryPage]);
 
   // handle add product
   const handleCreateProduct = async (product: Product): Promise<void> => {
@@ -104,10 +104,10 @@ const MainPage = () => {
     try {
       setIsLoading(true);
       await handleDeleteProduct(id);
-      setShowConfirmModal(false);
+      setIsModal((prevModal) => ({ ...prevModal, modalConfirm: false }));
       showToast(PRODUCT_MESSAGE.REMOVE_SUCCESS, ToastType.SUCCESS);
     } catch {
-      setShowConfirmModal(false);
+      setIsModal((prevModal) => ({ ...prevModal, modalConfirm: false }));
       showToast(PRODUCT_MESSAGE.REMOVE_ERROR, ToastType.ERROR);
     }
     setIsLoading(false);
@@ -116,15 +116,15 @@ const MainPage = () => {
   // submit modal form
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const validateMessage = validateForm(modalProductData);
+    const validateMessage = validateForm(isModal.modalProductList);
 
     if (Object.values(validateMessage).join('')) {
-      setErrorModalMessage(validateMessage);
+      setIsModal((prevModal) => ({ ...prevModal, modalError: validateMessage }));
     } else {
-      if (modalProductData.id === '') {
-        handleCreateProduct(modalProductData);
+      if (isModal.modalProductList.id === '') {
+        handleCreateProduct(isModal.modalProductList);
       } else {
-        handleEditProduct(modalProductData);
+        handleEditProduct(isModal.modalProductList);
       }
     }
   };
@@ -136,34 +136,43 @@ const MainPage = () => {
 
   // Cancel modal
   const handleCancelModal = () => {
-    setModalProductData(defaultData);
-    setErrorModalMessage(defaultErrorMessage);
-    setShowModalProduct(false);
+    setIsModal((prevModal) => ({
+      ...prevModal,
+      modalProduct: false,
+      modalError: defaultErrorMessage,
+      modalProductList: defaultData
+    }));
   };
 
   // Cancel modal confirm
   const handleCancelConfirmModal = () => {
-    setShowConfirmModal(false);
+    setIsModal((prevModal) => ({ ...prevModal, modalConfirm: false }));
   };
 
   // handle click delete product
   const handleClickDelete = (id: string) => {
-    setShowConfirmModal(true);
+    setIsModal((prevModal) => ({ ...prevModal, modalConfirm: true }));
     setGetIdConfirmModal(id);
   };
 
   // Handle click add product
   const handleClickAdd = () => {
-    setShowModalProduct(true);
-    setModalProductData(modalProductData);
-    setTitleModal(MODAL_TITLE.ADD);
+    setIsModal((prevModal) => ({
+      ...prevModal,
+      modalProduct: true,
+      modalTitle: MODAL_TITLE.ADD,
+      modalProductList: isModal.modalProductList
+    }));
   };
 
   // Handle click edit product
   const handleClickEditProduct = (product: Product) => {
-    setShowModalProduct(true);
-    setModalProductData(product);
-    setTitleModal(MODAL_TITLE.EDIT);
+    setIsModal((prevModal) => ({
+      ...prevModal,
+      modalProduct: true,
+      modalTitle: MODAL_TITLE.EDIT,
+      modalProductList: product
+    }));
   };
 
   // Handle click show more
@@ -171,7 +180,7 @@ const MainPage = () => {
     setIsLoading(true);
     setTimeout(async () => {
       try {
-        handleGetShowMore(pageRef.current += 1)
+        handleGetShowMore((pageRef.current += 1));
       } catch {
         showToast(PRODUCT_MESSAGE.GET_ERROR, ToastType.ERROR);
       }
@@ -183,7 +192,7 @@ const MainPage = () => {
   const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setIsLoading(true);
     setTimeout(() => {
-      setSearchName(e.target.value);
+      setIsQuery(prevQuery => ({ ...prevQuery, queryName: e.target.value }));
       setIsLoading(false);
     }, 1000);
   };
@@ -193,17 +202,17 @@ const MainPage = () => {
     setIsLoading(true);
     const value = e.target.value;
     setTimeout(() => {
-      setSortValue(value);
+      setIsQuery(prevQuery => ({ ...prevQuery, querySelect: value }));
       setIsLoading(false);
     }, 1000);
   };
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trimStart();
-    setModalProductData({
-      ...modalProductData,
-      [e.target.name]: value
-    });
+    setIsModal((prevModal) => ({
+      ...prevModal,
+      modalProductList: { ...isModal.modalProductList, [e.target.name]: value }
+    }));
   };
 
   return (
@@ -211,7 +220,7 @@ const MainPage = () => {
       <Header
         handleChangeSort={handleChangeSort}
         handleChangeSearch={handleChangeSearch}
-        sortValue={sortValue}
+        sortValue={isQuery.querySelect}
       />
       <main className="main-content">
         <section className="section-manage">
@@ -245,7 +254,7 @@ const MainPage = () => {
         </section>
       </main>
 
-      {showConfirmModal && (
+      {isModal.modalConfirm && (
         <Suspense fallback={<Spinner />}>
           <Modal classTitle="confirm-title" title="Are you sure you want to delete this food?">
             <ConfirmModal handleCancel={handleCancelConfirmModal} handleConfirm={handleConfirm} />
@@ -253,12 +262,12 @@ const MainPage = () => {
         </Suspense>
       )}
 
-      {showModalProduct && (
+      {isModal.modalProduct && (
         <Suspense fallback={<Spinner />}>
-          <Modal title={titleModal}>
+          <Modal title={isModal.modalTitle}>
             <ProductModal
-              product={modalProductData}
-              errorProductMessage={errorModalMessage}
+              product={isModal.modalProductList}
+              errorProductMessage={isModal.modalError}
               onchange={handleChangeInput}
               onSubmit={handleSubmit}
               onCancelClick={handleCancelModal}

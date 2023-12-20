@@ -12,17 +12,15 @@ export type QueryPramsType = {
 };
 
 const useProduct = () => {
-  const [searchName, setSearchName] = useState('');
-  const [pageProduct, setPageProduct] = useState(DEFAULT_PAGINATION);
-  const [sortValue, setSortValue] = useState(FILTER_ATTRIBUTE.DEFAULT);
+  const [isQuery, setIsQuery] = useState({queryName: '', querySelect: FILTER_ATTRIBUTE.DEFAULT, queryPage: DEFAULT_PAGINATION})
   const [isLastPage, setIsLastPage] = useState(Boolean);
   const [productList, setProductList] = useState<Product[]>([]);
 
   const queryParam = {
-    page: pageProduct,
+    page: isQuery.queryPage,
     limit: DEFAULT_LIMITATION,
-    sortBy: sortValue,
-    name: searchName
+    sortBy: isQuery.querySelect,
+    name: isQuery.queryName
   };
 
   // Get product
@@ -45,7 +43,7 @@ const useProduct = () => {
     queryParam.page = page;
 
     const products = await getProductList(queryParam);
-    setProductList(productList.concat(products))
+    setProductList(productList.concat(products));
   };
 
   const handleAddProduct = async (data: Product) => {
@@ -69,16 +67,12 @@ const useProduct = () => {
     handleDeleteProduct,
     handleGetShowMore,
     handleAddProduct,
-    setPageProduct,
     setProductList,
     getProductList,
-    setSearchName,
-    setSortValue,
-    pageProduct,
-    searchName,
-    sortValue,
+    setIsQuery,
     queryParam,
-    isLastPage
+    isLastPage,
+    isQuery,
   };
 };
 

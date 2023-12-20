@@ -14,7 +14,6 @@ export type InputFiledProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-
 const InputField = ({
   name,
   type,

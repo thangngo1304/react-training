@@ -26,9 +26,8 @@ export default class HttpsService<T> {
       });
       return response.json();
     } catch (error) {
-      return error
+      return error;
     }
-
   };
 
   /**
@@ -43,7 +42,7 @@ export default class HttpsService<T> {
       const response = await fetch(url);
       return response.json();
     } catch (error) {
-      return error
+      return error;
     }
   };
 
@@ -59,7 +58,7 @@ export default class HttpsService<T> {
       });
       return response.json();
     } catch (error) {
-      return error
+      return error;
     }
   };
 
@@ -77,7 +76,7 @@ export default class HttpsService<T> {
       });
       return response.json();
     } catch (error) {
-      return error
+      return error;
     }
   };
 }
