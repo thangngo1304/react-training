@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Sort from './Sort';
-import '../../../assets/css/main.css';
+import Select from './Select';
+import '@assets/css/main.css';
 
-const meta: Meta<typeof Sort> = {
+const meta: Meta<typeof Select> = {
   title: 'COMPONENTS/Common/Sort',
-  component: Sort
+  component: Select
 };
 
 export default meta;
@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
   render: (args) => (
-    <Sort
+    <Select
       {...args}
       selectOptions={[
         {
@@ -37,6 +37,6 @@ export const Base: Story = {
           children: 'Descending'
         }
       ]}
-    ></Sort>
+    ></Select>
   )
 };
