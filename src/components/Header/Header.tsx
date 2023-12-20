@@ -2,7 +2,7 @@
 import { FILTER_ATTRIBUTE } from 'constants/filter';
 
 // Components
-import { InputField, Sort } from '..';
+import { InputField, Select } from '..';
 
 // icon image
 import iconSearch from '../../../src/assets/icon/icon_search.svg';
@@ -63,7 +63,7 @@ const Header = ({ sortValue, handleChangeSort, handleChangeSearch }: HeaderProps
               />
             </form>
           </div>
-          <Sort selectOptions={selectOption} onChange={handleChangeSort} value={sortValue} />
+          <Select selectOptions={selectOption} onChange={handleChangeSort} value={sortValue} />
         </nav>
       </header>
     </>

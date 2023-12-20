@@ -31,7 +31,7 @@ const ProductCard = ({ product, onDelete, onEdit }: ProductProps) => {
         <div className="product-content">
           <p className="product-name">{product.name}</p>
           <div className="product-detail">
-            {product.price}
+            $ {product.price}
             <div className="separate"></div>
             {product.quantity} Bowls
           </div>

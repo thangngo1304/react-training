@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 
-export type SortOptionProps = {
+export type SelectOptionProps = {
   value?: string;
   children?: ReactNode;
   disabled?: boolean;
 };
 
-const SortOption = ({ value, children, disabled }: SortOptionProps) => {
+const SelectOption = ({ value, children, disabled }: SelectOptionProps) => {
   return (
     <option className="sort-item" disabled={disabled} value={value}>
       {children}
@@ -14,4 +14,4 @@ const SortOption = ({ value, children, disabled }: SortOptionProps) => {
   );
 };
 
-export default SortOption;
+export default SelectOption;

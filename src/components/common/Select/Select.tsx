@@ -1,17 +1,17 @@
-import SortOption, { SortOptionProps } from './SortOption/SortOption';
-import './sort.css';
+import SelectOption, { SelectOptionProps } from './SelectOption/SelectOption';
+import './select.css';
 
-export type SortProps = {
-  selectOptions: Array<SortOptionProps>;
+export type SelectProps = {
+  selectOptions: Array<SelectOptionProps>;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   value?: string;
 };
 
-const Sort = ({ selectOptions, onChange, value }: SortProps) => {
+const Select = ({ selectOptions, onChange, value }: SelectProps) => {
   return (
     <select className="sort-value" id="sort" onChange={onChange} value={value}>
       {selectOptions.map((option) => (
-        <SortOption
+        <SelectOption
           key={option.value?.toString()}
           value={option.value}
           disabled={option.disabled}
@@ -22,4 +22,4 @@ const Sort = ({ selectOptions, onChange, value }: SortProps) => {
   );
 };
 
-export default Sort;
+export default Select;
