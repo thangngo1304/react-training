@@ -1,5 +1,5 @@
 // Library
-import { FormEvent, Suspense, useContext, useState, useEffect, useRef, ChangeEvent } from 'react';
+import { FormEvent, Suspense, useContext, useState, useRef, ChangeEvent } from 'react';
 
 // Context
 import { ToastContext } from 'context/toast';
@@ -42,8 +42,6 @@ const MainPage = () => {
   // useProduct
   const {
     productList,
-    getProductList,
-    queryParam,
     isLastPage,
     isQuery,
     handleUpdateProduct,
@@ -68,10 +66,6 @@ const MainPage = () => {
   const [getIdConfirmModal, setGetIdConfirmModal] = useState('');
 
   const pageRef = useRef(DEFAULT_PAGINATION);
-
-  useEffect(() => {
-    getProductList(queryParam);
-  }, [isQuery.queryName, isQuery.querySelect, isQuery.queryPage]);
 
   // handle add product
   const handleCreateProduct = async (product: Product): Promise<void> => {
