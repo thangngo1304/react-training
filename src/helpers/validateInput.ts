@@ -9,9 +9,9 @@ import {
 
 type FoodErrorMessage = {
   name: string;
-  price: string;
+  price: number;
   image: string;
-  quantity: string;
+  quantity: number;
 }
 
 const validateRequired = (value = '', field: string): string | undefined => {
