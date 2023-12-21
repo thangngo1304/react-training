@@ -6,7 +6,13 @@ import {
   NUMBER_REGEX,
   QUANTITY_REGEX
 } from 'constants/regex';
-import { Product } from 'types';
+
+type FoodErrorMessage = {
+  name: string;
+  price: string;
+  image: string;
+  quantity: string;
+}
 
 const validateRequired = (value = '', field: string): string | undefined => {
   return value ? undefined : VALIDATE_MESSAGE.REQUIRED_ERROR.replace('{field}', field);
@@ -84,21 +90,15 @@ export const validateQuantity = (quantity = ''): string | undefined => {
  * @description handle validate form product
  * @param product
  */
-export const validateForm = (product: Product) => {
+export const validateForm = (product: FoodErrorMessage) => {
   const errorMessage = {
-    ...(validateName(product.name) && {
-      name: validateName(product.name)
-    }),
-    ...(validatePrice(product.price.toString()) && {
-      price: validatePrice(product.price.toString())
-    }),
-    ...(validateImage(product.image) && {
-      image: validateImage(product.image)
-    }),
-    ...(validateQuantity(product.quantity.toString()) && {
-      quantity: validateQuantity(product.quantity.toString())
-    })
+    name: validateName(product.name),
+    price: validatePrice(product.price.toString()),
+    image: validateImage(product.image),
+    quantity: validateQuantity(product.quantity.toString())
   };
 
   return errorMessage;
 };
+
+
