@@ -2,17 +2,18 @@ import { useEffect, useState } from 'react';
 import { Product } from 'types';
 import { queryParams } from 'helpers/buildQueryString';
 import { addProduct, deleteProductId, getProduct, updateProduct } from 'service/product';
-import { DEFAULT_LIMITATION, DEFAULT_PAGINATION, FILTER_ATTRIBUTE } from '@constants/index';
+import { DEFAULT_LIMITATION, DEFAULT_PAGINATION, FILTER_ATTRIBUTE, ORDER_DESC } from '@constants/index';
 
 export type QueryPramsType = {
   page: number;
   limit: number;
   sortBy: string;
+  order: string;
   name: string;
 };
 
 const useProduct = () => {
-  const [isQuery, setIsQuery] = useState({queryName: '', querySelect: FILTER_ATTRIBUTE.DEFAULT, queryPage: DEFAULT_PAGINATION})
+  const [isQuery, setIsQuery] = useState({ queryName: '', querySelect: FILTER_ATTRIBUTE.DEFAULT, queryPage: DEFAULT_PAGINATION })
   const [isLastPage, setIsLastPage] = useState(Boolean);
   const [productList, setProductList] = useState<Product[]>([]);
 
@@ -24,6 +25,7 @@ const useProduct = () => {
     page: isQuery.queryPage,
     limit: DEFAULT_LIMITATION,
     sortBy: isQuery.querySelect,
+    order: ORDER_DESC,
     name: isQuery.queryName
   };
 

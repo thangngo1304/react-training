@@ -23,24 +23,14 @@ const Header = ({ sortValue, handleChangeSort, handleChangeSearch }: HeaderProps
       children: 'Default'
     },
     {
-      value: FILTER_ATTRIBUTE.NAME_ASC,
+      value: FILTER_ATTRIBUTE.NAME,
       disabled: false,
-      children: 'Name asc'
+      children: 'Sort by Name'
     },
     {
-      value: FILTER_ATTRIBUTE.NAME_DESC,
+      value: FILTER_ATTRIBUTE.PRICE,
       disabled: false,
-      children: 'Name desc'
-    },
-    {
-      value: FILTER_ATTRIBUTE.PRICE_ASC,
-      disabled: false,
-      children: 'Price asc'
-    },
-    {
-      value: FILTER_ATTRIBUTE.PRICE_DESC,
-      disabled: false,
-      children: 'Price desc'
+      children: 'Sort by Price'
     }
   ];
 
