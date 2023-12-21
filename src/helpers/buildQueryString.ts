@@ -2,6 +2,7 @@ export type QueryParamsType<T extends Record<string, string | number | boolean>>
   page: number;
   limit: number;
   sortBy: string;
+  order: string
   name: string;
 } & T;
 
