@@ -29,7 +29,7 @@ import {
   Button,
   ConfirmModal,
   Header,
-  Modal,
+  ModalForm,
   ProductCard,
   ProductModal,
   Spinner
@@ -43,19 +43,20 @@ const MainPage = () => {
   const {
     productList,
     isLastPage,
-    isQuery,
+    query,
     handleUpdateProduct,
     handleDeleteProduct,
     handleGetShowMore,
     handleAddProduct,
-    setIsQuery
+    setQuery
   } = useProduct();
 
   // useContext
   const { showToast } = useContext(ToastContext);
 
   // useState
-  const [isModal, setIsModal] = useState({
+  // Name: Modal
+  const [Modal, setModal] = useState({
     modalTitle: '',
     modalError: defaultErrorMessage,
     modalProduct: false,
@@ -69,56 +70,43 @@ const MainPage = () => {
 
   // handle add product
   const handleCreateProduct = async (product: Product): Promise<void> => {
-    try {
-      setIsLoading(true);
-      await handleAddProduct(product);
-      handleCancelModal();
-      showToast(PRODUCT_MESSAGE.ADD_SUCCESS, ToastType.SUCCESS);
-    } catch {
-      showToast(PRODUCT_MESSAGE.ADD_FAILED, ToastType.SUCCESS);
-    }
+    setIsLoading(true);
+    await handleAddProduct(product);
+    handleCancelModal();
+    showToast(PRODUCT_MESSAGE.ADD_SUCCESS, ToastType.SUCCESS);
     setIsLoading(false);
   };
 
   // Handle Edit Product
   const handleEditProduct = async (product: Product): Promise<void> => {
-    try {
-      setIsLoading(true);
-      await handleUpdateProduct(product);
-      handleCancelModal();
-      showToast(PRODUCT_MESSAGE.EDIT_SUCCESS, ToastType.SUCCESS);
-    } catch {
-      showToast(PRODUCT_MESSAGE.EDIT_FAILED, ToastType.SUCCESS);
-    }
+    setIsLoading(true);
+    await handleUpdateProduct(product);
+    handleCancelModal();
+    showToast(PRODUCT_MESSAGE.EDIT_SUCCESS, ToastType.SUCCESS);
     setIsLoading(false);
   };
 
   // Handle delete product
   const deleteProduct = async (id: string) => {
-    try {
-      setIsLoading(true);
-      await handleDeleteProduct(id);
-      setIsModal((prevModal) => ({ ...prevModal, modalConfirm: false }));
-      showToast(PRODUCT_MESSAGE.REMOVE_SUCCESS, ToastType.SUCCESS);
-    } catch {
-      setIsModal((prevModal) => ({ ...prevModal, modalConfirm: false }));
-      showToast(PRODUCT_MESSAGE.REMOVE_ERROR, ToastType.ERROR);
-    }
+    setIsLoading(true);
+    await handleDeleteProduct(id);
+    setModal((prevModal) => ({ ...prevModal, modalConfirm: false }));
+    showToast(PRODUCT_MESSAGE.REMOVE_SUCCESS, ToastType.SUCCESS);
     setIsLoading(false);
   };
 
   // submit modal form
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const validateMessage = validateForm(isModal.modalProductList);
+    const validateMessage = validateForm(Modal.modalProductList);
 
     if (Object.values(validateMessage).join('')) {
-      setIsModal((prevModal) => ({ ...prevModal, modalError: validateMessage }));
+      setModal((prevModal) => ({ ...prevModal, modalError: validateMessage }));
     } else {
-      if (isModal.modalProductList.id === '') {
-        handleCreateProduct(isModal.modalProductList);
+      if (Modal.modalProductList.id === '') {
+        handleCreateProduct(Modal.modalProductList);
       } else {
-        handleEditProduct(isModal.modalProductList);
+        handleEditProduct(Modal.modalProductList);
       }
     }
   };
@@ -130,7 +118,7 @@ const MainPage = () => {
 
   // Cancel modal
   const handleCancelModal = () => {
-    setIsModal((prevModal) => ({
+    setModal((prevModal) => ({
       ...prevModal,
       modalProduct: false,
       modalError: defaultErrorMessage,
@@ -140,28 +128,28 @@ const MainPage = () => {
 
   // Cancel modal confirm
   const handleCancelConfirmModal = () => {
-    setIsModal((prevModal) => ({ ...prevModal, modalConfirm: false }));
+    setModal((prevModal) => ({ ...prevModal, modalConfirm: false }));
   };
 
   // handle click delete product
   const handleClickDelete = (id: string) => {
-    setIsModal((prevModal) => ({ ...prevModal, modalConfirm: true }));
+    setModal((prevModal) => ({ ...prevModal, modalConfirm: true }));
     setGetIdConfirmModal(id);
   };
 
   // Handle click add product
   const handleClickAdd = () => {
-    setIsModal((prevModal) => ({
+    setModal((prevModal) => ({
       ...prevModal,
       modalProduct: true,
       modalTitle: MODAL_TITLE.ADD,
-      modalProductList: isModal.modalProductList
+      modalProductList: Modal.modalProductList
     }));
   };
 
   // Handle click edit product
   const handleClickEditProduct = (product: Product) => {
-    setIsModal((prevModal) => ({
+    setModal((prevModal) => ({
       ...prevModal,
       modalProduct: true,
       modalTitle: MODAL_TITLE.EDIT,
@@ -186,7 +174,7 @@ const MainPage = () => {
   const handleChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setIsLoading(true);
     setTimeout(() => {
-      setIsQuery(prevQuery => ({ ...prevQuery, queryName: e.target.value }));
+      setQuery(prevQuery => ({ ...prevQuery, queryName: e.target.value }));
       setIsLoading(false);
     }, 1000);
   };
@@ -196,16 +184,16 @@ const MainPage = () => {
     setIsLoading(true);
     const value = e.target.value;
     setTimeout(() => {
-      setIsQuery(prevQuery => ({ ...prevQuery, querySelect: value }));
+      setQuery(prevQuery => ({ ...prevQuery, querySelect: value }));
       setIsLoading(false);
     }, 1000);
   };
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trimStart();
-    setIsModal((prevModal) => ({
+    setModal((prevModal) => ({
       ...prevModal,
-      modalProductList: { ...isModal.modalProductList, [e.target.name]: value }
+      modalProductList: { ...Modal.modalProductList, [e.target.name]: value }
     }));
   };
 
@@ -214,7 +202,7 @@ const MainPage = () => {
       <Header
         handleChangeSort={handleChangeSort}
         handleChangeSearch={handleChangeSearch}
-        sortValue={isQuery.querySelect}
+        sortValue={query.querySelect}
       />
       <main className="main-content">
         <section className="section-manage">
@@ -248,25 +236,25 @@ const MainPage = () => {
         </section>
       </main>
 
-      {isModal.modalConfirm && (
+      {Modal.modalConfirm && (
         <Suspense fallback={<Spinner />}>
-          <Modal classTitle="confirm-title" title="Are you sure you want to delete this food?">
+          <ModalForm classTitle="confirm-title" title="Are you sure you want to delete this food?">
             <ConfirmModal handleCancel={handleCancelConfirmModal} handleConfirm={handleConfirm} />
-          </Modal>
+          </ModalForm>
         </Suspense>
       )}
 
-      {isModal.modalProduct && (
+      {Modal.modalProduct && (
         <Suspense fallback={<Spinner />}>
-          <Modal title={isModal.modalTitle}>
+          <ModalForm title={Modal.modalTitle}>
             <ProductModal
-              product={isModal.modalProductList}
-              errorProductMessage={isModal.modalError}
+              product={Modal.modalProductList}
+              errorProductMessage={Modal.modalError}
               onchange={handleChangeInput}
               onSubmit={handleSubmit}
               onCancelClick={handleCancelModal}
             />
-          </Modal>
+          </ModalForm>
         </Suspense>
       )}
     </>

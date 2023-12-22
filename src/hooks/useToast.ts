@@ -17,7 +17,6 @@ const useToast = () => {
     setToastType(toastType);
     setTimeout(() => {
       setIsVisible(false);
-      toastType;
     }, 2500);
   };
 

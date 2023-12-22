@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Button, ProductModal } from '..';
 import { defaultData } from 'constants/product';
-import Modal from './Modal';
+import ModalForm from './ModalForm';
 
-const meta: Meta<typeof Modal> = {
+const meta: Meta<typeof ModalForm> = {
   title: 'COMPONENTS/ProductModal',
-  component: Modal
+  component: ModalForm
 };
 
 export default meta;
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const ModalAdd: Story = {
   render: (args) => (
-    <Modal
+    <ModalForm
       {...args}
       title="Create new product"
       children={<ProductModal {...args} product={defaultData} />}
@@ -24,13 +24,13 @@ export const ModalAdd: Story = {
 
 export const ModalEdit: Story = {
   render: (args) => (
-    <Modal {...args} title="Edit" children={<ProductModal product={defaultData} />} />
+    <ModalForm {...args} title="Edit" children={<ProductModal product={defaultData} />} />
   )
 };
 
 export const ModalConfirm: Story = {
   render: (args) => (
-    <Modal
+    <ModalForm
       {...args}
       classTitle="confirm-title"
       title="Are you sure you want to delete this food?"
