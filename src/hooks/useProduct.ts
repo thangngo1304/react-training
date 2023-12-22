@@ -13,20 +13,20 @@ export type QueryPramsType = {
 };
 
 const useProduct = () => {
-  const [isQuery, setIsQuery] = useState({ queryName: '', querySelect: FILTER_ATTRIBUTE.DEFAULT, queryPage: DEFAULT_PAGINATION })
+  const [query, setQuery] = useState({ queryName: '', querySelect: FILTER_ATTRIBUTE.DEFAULT, queryPage: DEFAULT_PAGINATION })
   const [isLastPage, setIsLastPage] = useState(Boolean);
   const [productList, setProductList] = useState<Product[]>([]);
 
   useEffect(() => {
     getProductList(queryParam);
-  }, [isQuery.queryName, isQuery.querySelect, isQuery.queryPage]);
+  }, [query]);
 
   const queryParam = {
-    page: isQuery.queryPage,
+    page: query.queryPage,
     limit: DEFAULT_LIMITATION,
-    sortBy: isQuery.querySelect,
+    sortBy: query.querySelect,
     order: ORDER_DESC,
-    name: isQuery.queryName
+    name: query.queryName
   };
 
   // Get product
@@ -34,7 +34,6 @@ const useProduct = () => {
     const path = queryParams(queryParam);
     const result = await getProduct(path);
     setProductList(result);
-    console.log(path);
 
     if (result.length < 9) {
       setIsLastPage(false);
@@ -75,10 +74,10 @@ const useProduct = () => {
     handleAddProduct,
     setProductList,
     getProductList,
-    setIsQuery,
+    setQuery,
     queryParam,
     isLastPage,
-    isQuery,
+    query,
   };
 };
 

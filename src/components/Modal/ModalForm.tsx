@@ -8,7 +8,7 @@ type ModalProps = {
   classTitle?: string;
 };
 
-const Modal = ({ title, children, classTitle }: ModalProps) => {
+const ModalForm = ({ title, children, classTitle }: ModalProps) => {
   return (
     <div className="modal-overlay">
       <div className="manage-modal">
@@ -19,4 +19,4 @@ const Modal = ({ title, children, classTitle }: ModalProps) => {
   );
 };
 
-export default Modal;
+export default ModalForm;
