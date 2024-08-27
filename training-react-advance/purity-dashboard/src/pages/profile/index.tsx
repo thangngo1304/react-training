@@ -15,8 +15,8 @@ import { AddIcon } from '@chakra-ui/icons';
 import { useCallback, useMemo, useState } from 'react';
 
 // Components
-import Header from 'src/components/Header';
 import {
+  Header,
   FetchingModal,
   Modal,
   ProjectForm,
@@ -27,15 +27,16 @@ import {
   UserForm,
   ProjectDetail,
   Fetching,
-} from 'src/components';
+  Avatar,
+  ErrorBoundary
+} from '@/components';
 import {
   EditIcon,
   LineIcon,
   OverviewIcon,
   ProjectIcon,
   TeamIcon,
-} from 'src/icons';
-import Avatar from 'src/components/common/Avatar';
+} from '@/icons';
 
 // Hooks
 import {
@@ -44,17 +45,16 @@ import {
   TUserRecordResponse,
   useProject,
   useUpdateUser,
-} from 'src/hooks';
+} from '@/hooks';
 
 // Constants
-import { ROUTES } from 'src/constants';
+import { ROUTES, SUCCESS_MESSAGE } from '@/constants';
 
 // Stores
-import { authStore } from 'src/stores';
+import { authStore } from '@/stores';
 
 // Types
-import { TRecordProject, TRecordUser } from 'src/types';
-import { SUCCESS_MESSAGE } from 'src/constants/message';
+import { TRecordProject, TRecordUser } from '@/types';
 
 const ProfilePage = () => {
   const [isProjectId, setIsProjectId] = useState('')
@@ -176,172 +176,176 @@ const ProfilePage = () => {
   }, []);
 
   const subHeader = useMemo(() => (
-    <Stack
-      p="16px"
-      w={{ base: "90%", md: "97%" }}
-      mb="-56px"
-      flexDirection={{ base: 'column', md: 'row' }}
-      borderRadius="lg"
-      alignItems="center"
-      bgGradient="linear(to-t, linear.300, linear.400)"
-      justifyContent="space-between"
-    >
-      {
-        <Flex alignItems="center" flexDirection={{ base: 'column', md: 'row' }}>
-          <Box position="relative" mb={{ base: "5px", md: "unset" }}>
-            <Avatar
-              width="80px"
-              height="80px"
-              src={`${avatar}`}
-              alt={`${name}`}
-            />
-            <Flex
-              w="26px"
-              h="26px"
-              borderRadius="8px"
-              boxShadow="0 2px 5.5px 0 rgba(0, 0, 0, .06)"
-              cursor="pointer"
-              bgColor="background.100"
-              position="absolute"
-              bottom="-4px"
-              right="-6px"
-              alignItems="center"
-              justifyContent="center"
-              onClick={onToggle}
-            >
-              <EditIcon />
-            </Flex>
-          </Box>
-          <VStack ml={{ base: "unset", md: "22px" }} alignItems={{ base: "center", md: "flex-start" }} gap={0}>
-            <Heading size="lg">{name}</Heading>
-            <Text variant="tertiary">{email}</Text>
-          </VStack>
-        </Flex>
-      }
+    <ErrorBoundary fallback={<Text textAlign="center">SubHeader component went wrong</Text>}>
+      <Stack
+        p="16px"
+        w={{ base: "90%", md: "97%" }}
+        mb="-56px"
+        flexDirection={{ base: 'column', md: 'row' }}
+        borderRadius="lg"
+        alignItems="center"
+        bgGradient="linear(to-t, linear.300, linear.400)"
+        justifyContent="space-between"
+      >
+        {
+          <Flex alignItems="center" flexDirection={{ base: 'column', md: 'row' }}>
+            <Box position="relative" mb={{ base: "5px", md: "unset" }}>
+              <Avatar
+                width="80px"
+                height="80px"
+                src={`${avatar}`}
+                alt={`${name}`}
+              />
+              <Flex
+                w="26px"
+                h="26px"
+                borderRadius="8px"
+                boxShadow="0 2px 5.5px 0 rgba(0, 0, 0, .06)"
+                cursor="pointer"
+                bgColor="background.100"
+                position="absolute"
+                bottom="-4px"
+                right="-6px"
+                alignItems="center"
+                justifyContent="center"
+                onClick={onToggle}
+              >
+                <EditIcon />
+              </Flex>
+            </Box>
+            <VStack ml={{ base: "unset", md: "22px" }} alignItems={{ base: "center", md: "flex-start" }} gap={0}>
+              <Heading size="lg">{name}</Heading>
+              <Text variant="tertiary">{email}</Text>
+            </VStack>
+          </Flex>
+        }
 
-      <Flex flexDirection={{ base: "column", md: "row" }}>
-        <Button variant="iconTertiary" leftIcon={<OverviewIcon />}>
-          OVERVIEW
-        </Button>
-        <Button variant="iconTertiary" leftIcon={<TeamIcon />}>
-          TEAMS
-        </Button>
-        <Button variant="iconTertiary" leftIcon={<ProjectIcon />}>
-          PROJECTS
-        </Button>
-      </Flex>
-    </Stack>
+        <Flex flexDirection={{ base: "column", md: "row" }}>
+          <Button variant="iconTertiary" leftIcon={<OverviewIcon />}>
+            OVERVIEW
+          </Button>
+          <Button variant="iconTertiary" leftIcon={<TeamIcon />}>
+            TEAMS
+          </Button>
+          <Button variant="iconTertiary" leftIcon={<ProjectIcon />}>
+            PROJECTS
+          </Button>
+        </Flex>
+      </Stack>
+    </ErrorBoundary>
   ), [user, onToggle])
 
   const sectionInformation = useMemo(() => (
-    <Grid w="100%" templateColumns={{ base: "", lg: "repeat(3, 1fr)" }} gap="24px" mb="24px">
-      <GridItem>
-        <CardInfo title="Platform Settings">
-          <VStack alignItems="flex-start" gap="20px" mb="20px">
-            <Heading color="text.400" fontSize="xs">
-              ACCOUNT
-            </Heading>
-            <VStack gap="18px">
-              <Switch
-                fontSize="sm"
-                color="text.400"
-                title="Email me when someone follows me"
-              />
-              <Switch
-                fontSize="sm"
-                color="text.400"
-                title="Email me when someone answers on my post"
-              />
-              <Switch
-                fontSize="sm"
-                color="text.400"
-                title="Email me when someone mentions me"
-              />
+    <ErrorBoundary fallback={<Text textAlign="center">sectionInformation component went wrong</Text>}>
+      <Grid w="100%" templateColumns={{ base: "", lg: "repeat(3, 1fr)" }} gap="24px" mb="24px">
+        <GridItem>
+          <CardInfo title="Platform Settings">
+            <VStack alignItems="flex-start" gap="20px" mb="20px">
+              <Heading color="text.400" fontSize="xs">
+                ACCOUNT
+              </Heading>
+              <VStack gap="18px">
+                <Switch
+                  fontSize="sm"
+                  color="text.400"
+                  title="Email me when someone follows me"
+                />
+                <Switch
+                  fontSize="sm"
+                  color="text.400"
+                  title="Email me when someone answers on my post"
+                />
+                <Switch
+                  fontSize="sm"
+                  color="text.400"
+                  title="Email me when someone mentions me"
+                />
+              </VStack>
             </VStack>
-          </VStack>
-          <VStack alignItems="flex-start" gap="20px">
-            <Heading color="text.400" fontSize="xs">
-              APPLICATION
-            </Heading>
-            <VStack gap="18px">
-              <Switch
-                fontSize="sm"
-                color="text.400"
-                title="New launches and projects"
-              />
-              <Switch
-                fontSize="sm"
-                color="text.400"
-                title="Monthly product updates"
-              />
-              <Switch
-                fontSize="sm"
-                color="text.400"
-                title="Subscribe to newsletter"
-              />
+            <VStack alignItems="flex-start" gap="20px">
+              <Heading color="text.400" fontSize="xs">
+                APPLICATION
+              </Heading>
+              <VStack gap="18px">
+                <Switch
+                  fontSize="sm"
+                  color="text.400"
+                  title="New launches and projects"
+                />
+                <Switch
+                  fontSize="sm"
+                  color="text.400"
+                  title="Monthly product updates"
+                />
+                <Switch
+                  fontSize="sm"
+                  color="text.400"
+                  title="Subscribe to newsletter"
+                />
+              </VStack>
             </VStack>
-          </VStack>
-        </CardInfo>
-      </GridItem>
-      <GridItem>
-        <CardInfo title="Profile Information">
-          <VStack alignItems="flex-start" gap="30px">
-            <Text>
-              Hi, I’m Alec Thompson, Decisions: If you can’t decide, the
-              answer is no. If two equally difficult paths, choose the one
-              more painful in the short term (pain avoidance is creating an
-              illusion of equality).
-            </Text>
-            <LineIcon />
-            <VStack alignItems="flex-start" gap="14px">
-              <InfoItem param="Full Name" content={name} />
-              <InfoItem param="Mobile" content={phone} />
-              <InfoItem param="Email" content={email} />
-              <InfoItem param="Location" content={location} />
-              <InfoItem param="Social Media" />
+          </CardInfo>
+        </GridItem>
+        <GridItem>
+          <CardInfo title="Profile Information">
+            <VStack alignItems="flex-start" gap="30px">
+              <Text>
+                Hi, I’m Alec Thompson, Decisions: If you can’t decide, the
+                answer is no. If two equally difficult paths, choose the one
+                more painful in the short term (pain avoidance is creating an
+                illusion of equality).
+              </Text>
+              <LineIcon />
+              <VStack alignItems="flex-start" gap="14px">
+                <InfoItem param="Full Name" content={name} />
+                <InfoItem param="Mobile" content={phone} />
+                <InfoItem param="Email" content={email} />
+                <InfoItem param="Location" content={location} />
+                <InfoItem param="Social Media" />
+              </VStack>
             </VStack>
-          </VStack>
-        </CardInfo>
-      </GridItem>
-      <GridItem>
-        <CardInfo title="Conversations">
-          <VStack alignItems="flex-start" gap="22px">
-            <Flex alignItems="center">
-              <Avatar />
-              <VStack ml="22px" alignItems="flex-start" gap={0}>
-                <Heading size="md">Esthera Jackson</Heading>
-                <Text variant="tertiary">
-                  Hi! I need more informations...
-                </Text>
-              </VStack>
-            </Flex>
-            <Flex alignItems="center">
-              <Avatar />
-              <VStack ml="22px" alignItems="flex-start" gap={0}>
-                <Heading size="md">Esthera Jackson</Heading>
-                <Text variant="tertiary">
-                  Awesome work, can you change...
-                </Text>
-              </VStack>
-            </Flex>
-            <Flex alignItems="center">
-              <Avatar />
-              <VStack ml="22px" alignItems="flex-start" gap={0}>
-                <Heading size="md">Esthera Jackson</Heading>
-                <Text variant="tertiary">Have a great afternoon...</Text>
-              </VStack>
-            </Flex>
-            <Flex alignItems="center">
-              <Avatar />
-              <VStack ml="22px" alignItems="flex-start" gap={0}>
-                <Heading size="md">Esthera Jackson</Heading>
-                <Text variant="tertiary">About files I can...</Text>
-              </VStack>
-            </Flex>
-          </VStack>
-        </CardInfo>
-      </GridItem>
-    </Grid>
+          </CardInfo>
+        </GridItem>
+        <GridItem>
+          <CardInfo title="Conversations">
+            <VStack alignItems="flex-start" gap="22px">
+              <Flex alignItems="center">
+                <Avatar />
+                <VStack ml="22px" alignItems="flex-start" gap={0}>
+                  <Heading size="md">Esthera Jackson</Heading>
+                  <Text variant="tertiary">
+                    Hi! I need more informations...
+                  </Text>
+                </VStack>
+              </Flex>
+              <Flex alignItems="center">
+                <Avatar />
+                <VStack ml="22px" alignItems="flex-start" gap={0}>
+                  <Heading size="md">Esthera Jackson</Heading>
+                  <Text variant="tertiary">
+                    Awesome work, can you change...
+                  </Text>
+                </VStack>
+              </Flex>
+              <Flex alignItems="center">
+                <Avatar />
+                <VStack ml="22px" alignItems="flex-start" gap={0}>
+                  <Heading size="md">Esthera Jackson</Heading>
+                  <Text variant="tertiary">Have a great afternoon...</Text>
+                </VStack>
+              </Flex>
+              <Flex alignItems="center">
+                <Avatar />
+                <VStack ml="22px" alignItems="flex-start" gap={0}>
+                  <Heading size="md">Esthera Jackson</Heading>
+                  <Text variant="tertiary">About files I can...</Text>
+                </VStack>
+              </Flex>
+            </VStack>
+          </CardInfo>
+        </GridItem>
+      </Grid>
+    </ErrorBoundary>
   ), [user])
 
   return (
@@ -449,7 +453,9 @@ const ProfilePage = () => {
           title="Update Profile"
           haveCloseButton
           body={
-            <UserForm onCloseModal={onToggle} onSubmit={handleSubmitUser} />
+            <ErrorBoundary fallback={<Text textAlign="center">UserForm went wrong</Text>}>
+              <UserForm onCloseModal={onToggle} onSubmit={handleSubmitUser} />
+            </ErrorBoundary>
           }
         />
       )}
@@ -462,21 +468,23 @@ const ProfilePage = () => {
           haveCloseButton
           isProjectDetail
           body={
-            <Fetching isLoading={loadingProjectId}>
-              <ProjectDetail
-                projectId={_id}
-                image={image}
-                name={projectName}
-                budget={budget}
-                status={status}
-                completion={completion}
-                description={description}
-              />
-            </Fetching>
+            <ErrorBoundary fallback={<Text textAlign="center">ProjectDetail went wrong</Text>}>
+              <Fetching isLoading={loadingProjectId}>
+                <ProjectDetail
+                  projectId={_id}
+                  image={image}
+                  name={projectName}
+                  budget={budget}
+                  status={status}
+                  completion={completion}
+                  description={description}
+                />
+              </Fetching>
+            </ErrorBoundary>
           }
         />
       )}
-    </VStack>
+    </VStack >
   );
 };
 
