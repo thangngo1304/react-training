@@ -1,4 +1,4 @@
-import { formatDecimalNumber } from "src/utils/formatNumber";
+import { formatDecimalNumber } from "@/utils";
 import { Box, Heading, HStack, Image, Progress, Text, VStack } from "@chakra-ui/react"
 
 type TProjectDetailProps = {

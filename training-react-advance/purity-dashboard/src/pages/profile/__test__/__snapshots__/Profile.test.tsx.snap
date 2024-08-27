@@ -33,7 +33,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
               </a>
             </div>
             <h2
-              class="chakra-heading css-1v61x8k"
+              class="chakra-heading css-1href2y"
             >
               Profile
             </h2>
@@ -173,7 +173,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
             class="chakra-stack css-13e9hhk"
           >
             <h2
-              class="chakra-heading css-oy3fvb"
+              class="chakra-heading css-16eoa1p"
             />
             <p
               class="chakra-text css-1r2ayu0"
@@ -330,7 +330,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
           class="chakra-stack css-iyhnqv"
         >
           <h2
-            class="chakra-heading css-427ynh"
+            class="chakra-heading css-gk6g9l"
           >
             Platform Settings
           </h2>
@@ -338,7 +338,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
             class="chakra-stack css-zv65gn"
           >
             <h2
-              class="chakra-heading css-cytiej"
+              class="chakra-heading css-11jggqn"
             >
               ACCOUNT
             </h2>
@@ -450,7 +450,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
             class="chakra-stack css-1jv9mt5"
           >
             <h2
-              class="chakra-heading css-cytiej"
+              class="chakra-heading css-11jggqn"
             >
               APPLICATION
             </h2>
@@ -567,7 +567,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
           class="chakra-stack css-iyhnqv"
         >
           <h2
-            class="chakra-heading css-427ynh"
+            class="chakra-heading css-gk6g9l"
           >
             Profile Information
           </h2>
@@ -622,7 +622,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
                 class="chakra-stack css-1igwmid"
               >
                 <h2
-                  class="chakra-heading css-ikp1xt"
+                  class="chakra-heading css-1bp3dq9"
                 >
                   Full Name
                   :
@@ -635,7 +635,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
                 class="chakra-stack css-1igwmid"
               >
                 <h2
-                  class="chakra-heading css-ikp1xt"
+                  class="chakra-heading css-1bp3dq9"
                 >
                   Mobile
                   :
@@ -648,7 +648,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
                 class="chakra-stack css-1igwmid"
               >
                 <h2
-                  class="chakra-heading css-ikp1xt"
+                  class="chakra-heading css-1bp3dq9"
                 >
                   Email
                   :
@@ -661,7 +661,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
                 class="chakra-stack css-1igwmid"
               >
                 <h2
-                  class="chakra-heading css-ikp1xt"
+                  class="chakra-heading css-1bp3dq9"
                 >
                   Location
                   :
@@ -674,7 +674,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
                 class="chakra-stack css-1igwmid"
               >
                 <h2
-                  class="chakra-heading css-ikp1xt"
+                  class="chakra-heading css-1bp3dq9"
                 >
                   Social Media
                   :
@@ -694,7 +694,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
           class="chakra-stack css-iyhnqv"
         >
           <h2
-            class="chakra-heading css-427ynh"
+            class="chakra-heading css-gk6g9l"
           >
             Conversations
           </h2>
@@ -717,7 +717,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
                 class="chakra-stack css-bm9tc9"
               >
                 <h2
-                  class="chakra-heading css-1pw1mag"
+                  class="chakra-heading css-181d1gq"
                 >
                   Esthera Jackson
                 </h2>
@@ -744,7 +744,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
                 class="chakra-stack css-bm9tc9"
               >
                 <h2
-                  class="chakra-heading css-1pw1mag"
+                  class="chakra-heading css-181d1gq"
                 >
                   Esthera Jackson
                 </h2>
@@ -771,7 +771,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
                 class="chakra-stack css-bm9tc9"
               >
                 <h2
-                  class="chakra-heading css-1pw1mag"
+                  class="chakra-heading css-181d1gq"
                 >
                   Esthera Jackson
                 </h2>
@@ -798,7 +798,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
                 class="chakra-stack css-bm9tc9"
               >
                 <h2
-                  class="chakra-heading css-1pw1mag"
+                  class="chakra-heading css-181d1gq"
                 >
                   Esthera Jackson
                 </h2>
@@ -820,7 +820,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
         class="css-i3pbo"
       >
         <h2
-          class="chakra-heading css-oy3fvb"
+          class="chakra-heading css-16eoa1p"
         >
           Project
         </h2>
@@ -837,7 +837,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
           class="css-0"
         >
           <div
-            class="chakra-stack css-10awbpf"
+            class="chakra-stack css-zmskud"
           >
             <svg
               class="chakra-icon css-onkibi"
@@ -850,7 +850,7 @@ exports[`Profile page Should render match with snapshot. 1`] = `
               />
             </svg>
             <h2
-              class="chakra-heading css-acgmst"
+              class="chakra-heading css-2ak1ww"
             >
               Create a New Project
             </h2>
@@ -860,22 +860,22 @@ exports[`Profile page Should render match with snapshot. 1`] = `
           class="css-0"
         >
           <div
-            class="chakra-stack css-tl3ftk"
+            class="chakra-stack css-1ey9w6j"
           >
             <div
-              class="css-1gdh63z"
+              class="css-4hq2zb"
             >
               <img
                 alt="Project "
-                class="chakra-image css-vhf13f"
+                class="chakra-image css-lv8xf"
                 src="https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/enhancer/3.jpg"
               />
-              <img
-                class="chakra-image css-1k3iufv"
+              <div
+                class="css-1idwje4"
               />
             </div>
             <div
-              class="chakra-stack css-13du08q"
+              class="chakra-stack css-1yd5f9g"
             >
               <p
                 class="chakra-text css-1s2vh1k"
@@ -884,12 +884,12 @@ exports[`Profile page Should render match with snapshot. 1`] = `
                 7
               </p>
               <h2
-                class="chakra-heading css-w8vpoz"
+                class="chakra-heading css-f2vlxm"
               >
                 Project 
               </h2>
               <p
-                class="chakra-text css-nefy13"
+                class="chakra-text css-z38s1d"
               >
                 asdasd
               </p>
