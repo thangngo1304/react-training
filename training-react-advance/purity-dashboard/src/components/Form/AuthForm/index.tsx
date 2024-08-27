@@ -18,7 +18,7 @@ import { InputField, Switch } from '@/components/common';
 import { AppleIcon, FacebookIcon, GoogleIcon } from '@/icons';
 
 // Constants
-import { AUTH_SCHEMA, ROUTES } from 'src/constants';
+import { AUTH_SCHEMA, ROUTES } from '@/constants';
 
 // Types
 import { AuthFormData } from '@/types';

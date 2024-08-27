@@ -16,11 +16,11 @@ import {
 import { EditIcon, ViewIcon } from '@chakra-ui/icons';
 
 // Components
-import { Dot } from 'src/icons';
+import { Dot } from '@/icons';
 import { AuthorForm, Modal, ProjectDetail, ProjectForm } from '../..';
 
 // Types
-import { TRecordAuthor, TRecordProject } from 'src/types';
+import { TRecordAuthor, TRecordProject } from '@/types';
 
 type TActionCellComponent = {
   data?: TRecordAuthor;

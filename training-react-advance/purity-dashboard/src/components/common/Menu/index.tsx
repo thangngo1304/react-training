@@ -2,8 +2,10 @@ import { Heading, List, ListItem, VStack } from '@chakra-ui/react';
 import { Fragment, MouseEvent, ReactElement, useCallback } from 'react';
 
 // Components
-import Navigation from '../../Navigation';
-import { ROUTES } from 'src/constants';
+import { Navigation } from '@/components';
+
+// Constants
+import { ROUTES } from '@/constants';
 
 export type TMenuItem = {
   id: number;

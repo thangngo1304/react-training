@@ -1,9 +1,12 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render } from "@testing-library/react";
 import '@testing-library/jest-dom';
 
 // Components
 import SignUpPage from "..";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+// Mocks
+import { USER } from "@/mocks";
 
 const mockCreateAccount = jest.fn()
 
@@ -11,6 +14,9 @@ jest.mock('@/hooks', () => ({
   useAuthRegister: () => ({
     createAccount: mockCreateAccount,
   }),
+  useAuthLogin: () => ({
+    users: USER
+  })
 }));
 
 jest.mock('@/stores', () => ({

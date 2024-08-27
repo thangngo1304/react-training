@@ -1,5 +1,7 @@
 import { HStack, Link, List, ListItem, Stack, Text } from '@chakra-ui/react';
-import { FOOTER_LINKS } from 'src/constants';
+
+// Constants
+import { FOOTER_LINKS } from '@/constants';
 
 export type TFooterProps = {
   isAuth?: boolean

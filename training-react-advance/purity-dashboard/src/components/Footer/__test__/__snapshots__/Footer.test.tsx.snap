@@ -10,24 +10,29 @@ exports[`Footer test case Should render correctly 1`] = `
     >
       <p
         class="chakra-text css-0"
-        content="@ 2021, Made with ❤️ by"
-      />
+      >
+        @ 2021, Made with ❤️ by
+      </p>
       <p
         class="chakra-text css-yeh2r3"
-        content="Creative Tim"
-      />
+      >
+        Creative Tim
+      </p>
       <p
         class="chakra-text css-0"
-        content="&"
-      />
+      >
+        &
+      </p>
       <p
         class="chakra-text css-yeh2r3"
-        content="Simple"
-      />
+      >
+        Simple
+      </p>
       <p
         class="chakra-text css-0"
-        content="for a better web"
-      />
+      >
+        for a better web
+      </p>
     </div>
     <ul
       class="css-yjzj4h"

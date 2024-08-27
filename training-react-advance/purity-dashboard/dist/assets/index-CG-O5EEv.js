@@ -1,1 +1,0 @@
-import{j as e,ae as i,af as n}from"./index-C3sPWvZH.js";const o=({isOpen:s=!1,children:t})=>e.jsxs(e.Fragment,{children:[t,s&&e.jsx(i,{position:"fixed",zIndex:999999999,inset:0,bg:"black",opacity:.7,children:e.jsx(n,{size:{base:"md",md:"lg",lg:"xl"},color:"text.300"})})]}),r=o;export{r as I};

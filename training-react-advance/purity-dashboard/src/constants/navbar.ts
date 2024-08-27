@@ -6,7 +6,7 @@ import {
   HomeIcon,
   PersonIcon,
   SignOutIcon,
-} from 'src/icons';
+} from '@/icons';
 
 // Constants
 import { ROUTES } from './router';

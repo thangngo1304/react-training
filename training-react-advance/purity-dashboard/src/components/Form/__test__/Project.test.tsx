@@ -3,7 +3,7 @@ import { render, fireEvent, act, waitFor } from '@testing-library/react';
 
 // Components
 import { ProjectForm } from '../..';
-import { PROJECT_STATUS } from 'src/constants';
+import { PROJECT_STATUS } from '@/constants';
 
 describe('ProjectForm component', () => {
   const mockProps = {

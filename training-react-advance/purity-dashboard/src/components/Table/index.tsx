@@ -12,8 +12,10 @@ import {
 } from '@chakra-ui/react';
 
 // Types
-import { TDataSource, THeaderTable } from 'src/types/table';
-import { ERROR_MESSAGES } from 'src/constants/message';
+import { TDataSource, THeaderTable } from '@/types';
+
+// Constants
+import { ERROR_MESSAGES } from '@/constants';
 
 type TTableProps = TableProps & {
   columns?: THeaderTable[];

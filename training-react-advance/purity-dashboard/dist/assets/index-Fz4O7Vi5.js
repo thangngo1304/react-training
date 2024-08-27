@@ -1,1 +1,0 @@
-import{a as e,j as r,Y as u,R as i}from"./index-C3sPWvZH.js";const n=({children:s})=>{const t=e(o=>{var a;return(a=o.user)==null?void 0:a.fields});return t!=null&&t.email?s:r.jsx(u,{to:i.SIGN_IN})};export{n as default};

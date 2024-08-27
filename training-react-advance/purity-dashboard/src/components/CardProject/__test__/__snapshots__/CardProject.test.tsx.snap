@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardProject component test case Render when data is available 1`] = `
+<div>
+  <p
+    class="chakra-text css-xi606m"
+  >
+    CardProject component went wrong
+  </p>
+</div>
+`;

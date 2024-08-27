@@ -19,7 +19,7 @@ import { AuthFormData } from '@/types';
 import { authStore } from '@/stores';
 
 // Utils
-import { formatUppercaseFirstLetter } from 'src/utils';
+import { formatUppercaseFirstLetter } from '@/utils';
 
 const SignInPage = ({ children }: { children?: ReactNode }) => {
   const [errorMessage, setErrorMessage] = useState('');
