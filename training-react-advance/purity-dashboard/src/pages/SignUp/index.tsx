@@ -3,7 +3,7 @@ import { Box, Flex, Heading, Text, useToast, VStack } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 // Components
-import { Footer, AuthForm } from '@/components';
+import { Footer, AuthForm, ErrorBoundary } from '@/components';
 
 // Constants
 import { ROUTES, ERROR_MESSAGES, SUCCESS_MESSAGE } from '@/constants';
@@ -100,7 +100,9 @@ const SignUpPage = ({ children }: { children?: ReactNode }) => {
               project for free.
             </Text>
           </VStack>
-          <AuthForm isRegister onSubmit={onSubmit} />
+          <ErrorBoundary fallback={<Text textAlign="center">AuthForm from sign-up went wrong</Text>}>
+            <AuthForm isRegister onSubmit={onSubmit} />
+          </ErrorBoundary>
         </VStack>
         <Flex w="100%" flex={1}>
           <Footer />

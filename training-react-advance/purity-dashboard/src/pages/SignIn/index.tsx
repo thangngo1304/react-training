@@ -1,9 +1,9 @@
 import { ReactNode, useCallback, useState } from 'react';
-import { Flex, VStack } from '@chakra-ui/react';
+import { Flex, Text, VStack } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 // Components
-import { AuthForm, Footer } from '@/components';
+import { AuthForm, ErrorBoundary, Footer } from '@/components';
 import { LogoChakra } from '@/icons';
 
 // Hooks
@@ -73,11 +73,13 @@ const SignInPage = ({ children }: { children?: ReactNode }) => {
         justifyContent="space-between"
       >
         <Flex w="100%" pt='30px' alignItems="center" justifyContent={{ base: 'center', lg: "unset" }} flex={2}>
-          <AuthForm
-            onSubmit={onSubmit}
-            errorMessage={errorMessage}
-            handleClearRootError={handleResetError}
-          />
+          <ErrorBoundary fallback={<Text textAlign="center">AuthForm from sign-in went wrong</Text>}>
+            <AuthForm
+              onSubmit={onSubmit}
+              errorMessage={errorMessage}
+              handleClearRootError={handleResetError}
+            />
+          </ErrorBoundary>
         </Flex>
         <Flex w="100%" flex={1}>
           <Footer />
