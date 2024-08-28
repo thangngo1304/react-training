@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FunctionCell component should match with snapshot 1`] = `
+<div>
+  <table
+    class="chakra-table css-0"
+  >
+    <td
+      class="css-1nygxpw"
+    >
+      <div
+        class="chakra-stack css-qa66p0"
+      >
+        <h2
+          class="chakra-heading css-acdumj"
+        >
+          FE
+        </h2>
+        <p
+          class="chakra-text css-acdumj"
+        >
+          Dev
+        </p>
+      </div>
+    </td>
+  </table>
+</div>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusCell component should match with snapshot 1`] = `
+<div>
+  <table
+    class="chakra-table css-0"
+  >
+    <td
+      class="css-10ngfz9"
+    >
+      <div
+        class="css-acdumj"
+      >
+        <span
+          class="chakra-badge css-sbi8wv"
+        >
+          Status
+        </span>
+      </div>
+    </td>
+  </table>
+</div>
+`;

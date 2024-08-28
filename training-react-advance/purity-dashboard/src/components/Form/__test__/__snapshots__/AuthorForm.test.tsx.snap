@@ -4,7 +4,7 @@ exports[`AuthorForm component should match with snapshot 1`] = `
 <div>
   <form
     class="chakra-stack css-tl3ftk"
-    id="update-product-form"
+    id="update-author-form"
   >
     <div
       class="chakra-stack css-5crs4f"
@@ -225,9 +225,9 @@ exports[`AuthorForm component should match with snapshot 1`] = `
     >
       <button
         class="chakra-button css-2cbh8c"
-        data-testid="submit-product-form"
+        data-testid="submit-author-form"
         disabled=""
-        form="update-product-form"
+        form="update-author-form"
         type="submit"
       >
         Save
