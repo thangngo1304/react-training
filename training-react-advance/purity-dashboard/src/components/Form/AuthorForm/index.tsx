@@ -91,7 +91,7 @@ const AuthorForm = ({ data, onCloseModal, onSubmit }: AuthorFormProps) => {
   return (
     <VStack
       as="form"
-      id="update-product-form"
+      id="update-author-form"
       onSubmit={handleSubmit(handleSubmitForm)}
     >
       <VStack w="100%" alignItems="flex-start">
@@ -247,8 +247,8 @@ const AuthorForm = ({ data, onCloseModal, onSubmit }: AuthorFormProps) => {
       <Flex my={4}>
         <Button
           type="submit"
-          form="update-product-form"
-          data-testid="submit-product-form"
+          form="update-author-form"
+          data-testid="submit-author-form"
           w={44}
           h="full"
           bg="green.600"

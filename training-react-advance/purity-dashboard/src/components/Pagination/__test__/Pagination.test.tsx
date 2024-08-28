@@ -5,10 +5,20 @@ import userEvent from '@testing-library/user-event';
 import Pagination from '..';
 
 const onPageChangeMock = jest.fn();
+const onClickPageMock = jest.fn();
 
 describe('Pagination render', () => {
   test('Should render match with snapshot.', () => {
-    const { container } = render(<Pagination />);
+    const { container } = render(
+      <Pagination
+        currentPage={1}
+        isDisableNext={true}
+        isDisabledPrev={true}
+        arrOfCurrButtons={['1']}
+        onPageChange={onPageChangeMock}
+        onClickPage={onClickPageMock}
+      />
+    );
     expect(container).toMatchSnapshot();
   });
 

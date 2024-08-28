@@ -67,6 +67,7 @@ const config: Config = {
     '<rootDir>/src/vite-env.d.ts',
     '<rootDir>/src/components/Form/index.ts',
     '<rootDir>/src/layouts/index.ts',
+    '<rootDir>/src/components/Table/Body/index.ts',
   ],
   verbose: true,
   collectCoverage: true,
