@@ -15,7 +15,6 @@ import {
   FunctionCell,
   AuthorForm,
   Indicator,
-  ErrorBoundary,
 } from '@/components';
 
 // Hooks
@@ -198,9 +197,7 @@ const TablePage = () => {
 
   const renderHead = useCallback((title: string, key: string): JSX.Element => {
     return title ? (
-      <ErrorBoundary fallback={<Text textAlign="center">HeadCell component went wrong</Text>}>
-        <HeadCell key={key} title={title} />
-      </ErrorBoundary>
+      <HeadCell key={key} title={title} />
     ) : (
       <Th w={50} maxW={50} />
     );
@@ -208,18 +205,14 @@ const TablePage = () => {
 
   const renderAuthor = useCallback(
     ({ id, name, avatar, email }: TDataSource): JSX.Element => (
-      <ErrorBoundary fallback={<Text textAlign="center">AuthorCell component went wrong</Text>}>
-        <AuthorCell id={id} key={id} name={name} image={avatar} email={email} />
-      </ErrorBoundary>
+      <AuthorCell id={id} key={id} name={name} image={avatar} email={email} />
     ),
     [],
   );
 
   const renderFunction = useCallback(
     ({ role, job }: TAuthor): JSX.Element => (
-      <ErrorBoundary fallback={<Text textAlign="center">FunctionCell component went wrong</Text>}>
-        <FunctionCell role={role} job={job} />
-      </ErrorBoundary>
+      <FunctionCell role={role} job={job} />
     ),
     [],
   );
@@ -228,121 +221,105 @@ const TablePage = () => {
 
   const renderAuthorStatus = useCallback(
     ({ authorStatus }: TDataSource) => (
-      <ErrorBoundary fallback={<Text textAlign="center">StatusCell for author component went wrong</Text>}>
-        <StatusCell
-          isAuthor
-          variant={STATUS_LABEL[`${authorStatus}` as TStatus]}
-          text={authorStatus as string}
-        />
-      </ErrorBoundary>
+      <StatusCell
+        isAuthor
+        variant={STATUS_LABEL[`${authorStatus}` as TStatus]}
+        text={authorStatus as string}
+      />
     ),
     [],
   );
 
   const renderProjectStatus = useCallback(
     ({ projectStatus }: TDataSource) => (
-      <ErrorBoundary fallback={<Text textAlign="center">StatusCell for project component went wrong</Text>}>
-        <StatusCell
-          variant={STATUS_LABEL[`${projectStatus}` as TStatus]}
-          text={projectStatus as string}
-        />
-      </ErrorBoundary>
+      <StatusCell
+        variant={STATUS_LABEL[`${projectStatus}` as TStatus]}
+        text={projectStatus as string}
+      />
     ),
     [],
   );
 
   const renderEmployed = useCallback(
     ({ employed }: TAuthor): JSX.Element => (
-      <ErrorBoundary fallback={<Text textAlign="center">Employed component went wrong</Text>}>
-        <Td
-          py="5px"
-          pr="5px"
-          pl={0}
+      <Td
+        py="5px"
+        pr="5px"
+        pl={0}
+        fontSize="md"
+        textAlign="left"
+        w={{ base: '100px', md: '220px' }}
+      >
+        <Text
           fontSize="md"
-          textAlign="left"
-          w={{ base: '100px', md: '220px' }}
+          whiteSpace="break-spaces"
+          noOfLines={1}
+          w={{ base: '100px', '3xl': '150px', '5xl': '200px' }}
+          flex={1}
+          color="text.200"
+          fontWeight="bold"
         >
-          <Text
-            fontSize="md"
-            whiteSpace="break-spaces"
-            noOfLines={1}
-            w={{ base: '100px', '3xl': '150px', '5xl': '200px' }}
-            flex={1}
-            color="text.200"
-            fontWeight="bold"
-          >
-            {dayjs(employed).format(DATE_FORMAT)}
-          </Text>
-        </Td>
-      </ErrorBoundary>
+          {dayjs(employed).format(DATE_FORMAT)}
+        </Text>
+      </Td>
     ),
     [],
   );
 
   const renderAuthorAction = useCallback(
     (data: TRecordAuthor): JSX.Element => (
-      <ErrorBoundary fallback={<Text textAlign="center">ActionCell for author went wrong</Text>}>
-        <ActionCell isAuthor data={data} onUpdateAuthor={handleUpdateAuthor} />
-      </ErrorBoundary>
+      <ActionCell isAuthor data={data} onUpdateAuthor={handleUpdateAuthor} />
     ),
     [handleUpdateAuthor],
   );
 
   const renderProjectActionIcon = useCallback(
     (data: TRecordProject) => (
-      <ErrorBoundary fallback={<Text textAlign="center">ActionCell for project went wrong</Text>}>
-        <ActionCell
-          dataProject={data}
-          isOpenOption={true}
-          onUpdateProject={handleUpdateProject}
-        />
-      </ErrorBoundary>
+      <ActionCell
+        dataProject={data}
+        isOpenOption={true}
+        onUpdateProject={handleUpdateProject}
+      />
     ),
     [],
   );
 
   const renderCompanies = useCallback(
     ({ id, avatar, projectName }: TDataSource): JSX.Element => (
-      <ErrorBoundary fallback={<Text textAlign="center">Companies component went wrong</Text>}>
-        <AuthorCell id={id} key={id} name={projectName} image={avatar} />
-      </ErrorBoundary>
+      <AuthorCell id={id} key={id} name={projectName} image={avatar} />
     ),
     [],
   );
 
   const renderBudget = useCallback(
     ({ budget }: TProject): JSX.Element => (
-      <ErrorBoundary fallback={<Text textAlign="center">Budget component went wrong</Text>}>
-        <Td
-          py="5px"
-          pr="5px"
-          pl={0}
-          fontSize="md"
-          textAlign="left"
+      <Td
+        py="5px"
+        pr="5px"
+        pl={0}
+        fontSize="md"
+        textAlign="left"
+        w={{ base: '200px', xl: '220px', '3xl': '250px', '6xl': '350px' }}
+      >
+        <Text
+          flex={1}
           w={{ base: '200px', xl: '220px', '3xl': '250px', '6xl': '350px' }}
+          noOfLines={1}
+          color="text.primary"
+          fontWeight="bold"
+          fontSize="md"
+          whiteSpace="break-spaces"
         >
-          <Text
-            flex={1}
-            w={{ base: '200px', xl: '220px', '3xl': '250px', '6xl': '350px' }}
-            noOfLines={1}
-            color="text.primary"
-            fontWeight="bold"
-            fontSize="md"
-            whiteSpace="break-spaces"
-          >
-            {budget}
-          </Text>
-        </Td>
-      </ErrorBoundary>
+          {budget}
+        </Text>
+      </Td>
     ),
     [],
   );
 
   const renderCompletion = useCallback(
     ({ completion }: TProject): JSX.Element => (
-      <ErrorBoundary fallback={<Text textAlign="center">Completion component went wrong</Text>}>
-        <CompletionCell completion={completion} />
-      </ErrorBoundary>
+      <CompletionCell completion={completion} />
     ),
     [],
   );

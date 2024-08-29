@@ -213,6 +213,7 @@ const AuthorForm = ({ data, onCloseModal, onSubmit }: AuthorFormProps) => {
                   isError={!!error}
                   errorMessages={error?.message}
                   onChange={handleChangeValue('fields.job', field.onChange)}
+                  data-testid="edit-field-job"
                 />
               )}
             />
@@ -238,6 +239,7 @@ const AuthorForm = ({ data, onCloseModal, onSubmit }: AuthorFormProps) => {
                 isError={!!error}
                 errorMessages={error?.message}
                 onChange={handleChangeValue('fields.employed', field.onChange)}
+                data-testid="edit-field-employed"
               />
             )}
           />

@@ -41,6 +41,8 @@ const config: Config = {
     '^@/stores(.*)$': '<rootDir>src/stores/$1',
     '^@/icons(.*)$': '<rootDir>src/icons/$1',
     '^@/themes(.*)$': '<rootDir>src/themes/$1',
+    '^@/providers(.*)$': '<rootDir>src/providers/$1',
+    '^@/routes(.*)$': '<rootDir>src/routes/$1',
   },
 
   coveragePathIgnorePatterns: [

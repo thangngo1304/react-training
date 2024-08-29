@@ -57,7 +57,7 @@ const ModalTable = ({
         <Flex w="100%" justifyContent="space-between">
           <Heading mt="4px">{title}</Heading>
           {isAuthor && (
-            <Button gap="4px" onClick={onClickAdd}>
+            <Button gap="4px" onClick={onClickAdd} data-testid="button-add">
               Add new <AddIcon />
             </Button>
           )}

@@ -171,6 +171,7 @@ exports[`AuthorForm component should match with snapshot 1`] = `
             >
               <input
                 class="chakra-input css-gh4tfk"
+                data-testid="edit-field-job"
                 id="field-:r4:"
                 name="fields.job"
                 placeholder="Job"
@@ -210,6 +211,7 @@ exports[`AuthorForm component should match with snapshot 1`] = `
           >
             <input
               class="chakra-input css-gh4tfk"
+              data-testid="edit-field-employed"
               id="field-:r5:"
               name="fields.employed"
               placeholder="Employed"
