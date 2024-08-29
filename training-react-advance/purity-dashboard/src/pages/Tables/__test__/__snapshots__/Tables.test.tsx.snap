@@ -130,6 +130,7 @@ exports[`Tables page Should render match with snapshot. 1`] = `
           </h2>
           <button
             class="chakra-button css-mkfe5m"
+            data-testid="button-add"
             type="button"
           >
             Add new 

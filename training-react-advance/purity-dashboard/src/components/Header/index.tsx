@@ -74,7 +74,7 @@ const Header = ({
                   onSearch && onSearch(value);
                 }}
                 leftIcon={<SearchIcon />}
-                rightIcon={value && <CloseIcon onClick={handleResetValue} />}
+                rightIcon={value && <CloseIcon as='button' onClick={handleResetValue} />}
                 background="background.100"
                 isDisabled={isProfile}
               />
