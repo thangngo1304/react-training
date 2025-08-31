@@ -13,3 +13,4 @@ export * from './regex';
 export * from './pagination';
 export * from './message';
 export * from './slide';
+export * from './navbar';
