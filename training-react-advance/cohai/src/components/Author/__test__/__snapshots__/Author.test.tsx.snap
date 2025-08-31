@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Author component test case render when data is available 1`] = `
+<div>
+  <div
+    class="chakra-stack css-1igwmid"
+  >
+    <div
+      class="css-j5b9iu"
+    >
+      <div
+        class="css-xax5g4"
+      >
+        <img
+          alt="Cat"
+          class="chakra-image css-15sm3g6"
+          src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"
+        />
+      </div>
+    </div>
+    <div
+      class="css-0"
+    >
+      <h2
+        class="chakra-heading css-0"
+      >
+        Cat
+      </h2>
+      <p
+        class="chakra-text css-0"
+      >
+        cat@gmail.com
+      </p>
+    </div>
+  </div>
+</div>
+`;

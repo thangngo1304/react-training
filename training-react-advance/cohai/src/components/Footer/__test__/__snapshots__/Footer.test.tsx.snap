@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer test case Should render correctly 1`] = `
+<div>
+  <div
+    class="chakra-stack css-1g9houa"
+  >
+    <div
+      class="chakra-stack css-9hjtr8"
+    >
+      <p
+        class="chakra-text css-0"
+      >
+        @ 2021, Made with ❤️ by
+      </p>
+      <p
+        class="chakra-text css-yeh2r3"
+      >
+        Creative Tim
+      </p>
+      <p
+        class="chakra-text css-0"
+      >
+        &
+      </p>
+      <p
+        class="chakra-text css-yeh2r3"
+      >
+        Simple
+      </p>
+      <p
+        class="chakra-text css-0"
+      >
+        for a better web
+      </p>
+    </div>
+    <ul
+      class="css-yjzj4h"
+      role="list"
+    >
+      <li
+        class="css-0"
+      >
+        <a
+          class="chakra-link css-old1by"
+          href="/creative-tim"
+        >
+          Creative Tim
+        </a>
+      </li>
+      <li
+        class="css-0"
+      >
+        <a
+          class="chakra-link css-old1by"
+          href="/simple"
+        >
+          Simple
+        </a>
+      </li>
+      <li
+        class="css-0"
+      >
+        <a
+          class="chakra-link css-old1by"
+          href="/blog"
+        >
+          Blog
+        </a>
+      </li>
+      <li
+        class="css-0"
+      >
+        <a
+          class="chakra-link css-old1by"
+          href="/license"
+        >
+          License
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
