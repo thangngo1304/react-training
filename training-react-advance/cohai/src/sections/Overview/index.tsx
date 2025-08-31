@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Container,
   HStack,
   IconButton,
   Stack,
@@ -11,7 +10,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Header } from '@/components';
-import { imagesOverview, ROUTES } from '@/constants';
+import { imagesOverview } from '@/constants';
 import { useEffect, useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 

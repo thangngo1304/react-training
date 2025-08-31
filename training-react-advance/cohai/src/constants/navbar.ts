@@ -22,7 +22,7 @@ export const MENU_ITEM_LIST = [
     id: 2,
     leftIcon: ChartIcon,
     menuItemContent: 'Tables',
-    destination: ROUTES.TABLES,
+    destination: ROUTES.HOME,
   },
   {
     id: 3,
