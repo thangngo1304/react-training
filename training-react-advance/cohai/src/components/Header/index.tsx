@@ -2,7 +2,6 @@ import { memo } from 'react';
 import {
   Heading,
   HStack,
-  Stack,
   Text,
   useBreakpointValue,
   VStack,
