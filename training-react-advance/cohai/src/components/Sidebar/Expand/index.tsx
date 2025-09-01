@@ -1,4 +1,15 @@
-import { Box, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Link, Stack, useDisclosure } from '@chakra-ui/react';
+import {
+  Box,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Link,
+  Stack,
+  useDisclosure,
+} from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 
 // Component
@@ -13,35 +24,32 @@ type TSidebarProps = {
 };
 
 const ExpandSidebar = ({ onSignOut }: TSidebarProps) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Stack position='relative'>
-      <Box onClick={onOpen} position='absolute' top='35px' left='10px'>
-        <HamburgerIcon />
+    <Stack position="relative" w="24px" h="24px">
+      <Box onClick={onOpen} position="absolute">
+        <HamburgerIcon w="24px" h="24px" />
       </Box>
-      <Drawer
-        isOpen={isOpen}
-        placement='left'
-        onClose={onClose}
-      >
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader><Link href="/" as="h1" mb="27.5px">
-            <LogoIcon />
-          </Link></DrawerHeader>
+          <DrawerHeader>
+            <Link href="/" as="h1" mb="27.5px">
+              <LogoIcon />
+            </Link>
+          </DrawerHeader>
 
           <LineIcon />
           <DrawerBody>
             {SIDEBAR_LIST.map((item) => (
-              <Menu title={item.title} listItem={item.listItem} onSignOut={onSignOut} />
+              <Menu listItem={item.listItem} />
             ))}
-            <CardHelp />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
     </Stack>
   );
-}
+};
 
 export default ExpandSidebar;

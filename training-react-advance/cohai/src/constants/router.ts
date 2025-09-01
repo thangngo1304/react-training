@@ -8,4 +8,6 @@ export const ROUTES = {
   BILLING: '/billing',
   RTL: '/rtl',
   PROFILE: '/profile',
+  ABOUT: '/about',
+  CONTACT: '/contact',
 };
