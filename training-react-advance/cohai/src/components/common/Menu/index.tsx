@@ -4,8 +4,6 @@ import { ReactElement } from 'react';
 // Components
 import { Navigation } from '@/components';
 
-// Constants
-
 export type TMenuItem = {
   id: number;
   leftIcon?: () => ReactElement;

@@ -14,16 +14,12 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 
 // Component
 import { LineIcon, LogoIcon } from '@/icons';
-import { CardHelp, Menu } from '@/components';
+import { Menu } from '@/components';
 
 // Constants
 import { SIDEBAR_LIST } from '@/constants';
 
-type TSidebarProps = {
-  onSignOut?: () => void;
-};
-
-const ExpandSidebar = ({ onSignOut }: TSidebarProps) => {
+const ExpandSidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Stack position="relative" w="24px" h="24px">
