@@ -71,11 +71,11 @@ const Overview = () => {
         aria-label="Previous"
         icon={<ChevronLeftIcon />}
         position="absolute"
-        top="50%"
+        top="60%"
         left="20px"
         transform="translateY(-50%)"
         onClick={handlePrev}
-        zIndex={2}
+        zIndex={11}
         bg="whiteAlpha.700"
         _hover={{ bg: 'background.300' }}
         rounded="full"
@@ -84,11 +84,11 @@ const Overview = () => {
         aria-label="Next"
         icon={<ChevronRightIcon />}
         position="absolute"
-        top="50%"
+        top="60%"
         right="20px"
         transform="translateY(-50%)"
         onClick={handleNext}
-        zIndex={2}
+        zIndex={11}
         bg="whiteAlpha.700"
         _hover={{ bg: 'background.300' }}
         rounded="full"
