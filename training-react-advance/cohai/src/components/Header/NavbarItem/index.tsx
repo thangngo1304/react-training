@@ -1,20 +1,30 @@
-import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Link } from '@chakra-ui/react';
 
-type TNavbarProps = {
-  path?: string;
-  name?: string;
-  colorFill?: string;
+type NavItem = {
+  name: string;
+  path: string;
 };
 
-const Navbar = ({ path, name, colorFill }: TNavbarProps) => (
-  <Box>
-    <Flex flexDirection="row" alignItems="center" mb="5px">
-      <Text size="textSm" color={colorFill}>Pages /</Text>
-      <Link href={path} variant="secondary" color={colorFill}>
-        {name}
-      </Link>
+type TNavbarProps = {
+  items: NavItem[];
+};
+
+const Navbar = ({ items }: TNavbarProps) => (
+  <Box as="nav">
+    <Flex as="ul" listStyleType="none">
+      {items.map((item) => (
+        <Box as="li" key={item.path}>
+          <Link
+            href={item.path}
+            fontSize="md"
+            fontWeight="medium"
+            _hover={{ textDecoration: 'underline', color: 'text.300' }}
+          >
+            {item.name}
+          </Link>
+        </Box>
+      ))}
     </Flex>
-    <Heading as={'h2'} size="md" color={colorFill}>{name}</Heading>
   </Box>
 );
 

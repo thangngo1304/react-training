@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Heading,
   HStack,
   IconButton,
   Stack,
@@ -56,6 +57,15 @@ const Overview = () => {
           zIndex={0}
         />
       </AnimatePresence>
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        w="100%"
+        h="100%"
+        bg="blackAlpha.600"
+        zIndex={1}
+      />
 
       <IconButton
         aria-label="Previous"
@@ -67,7 +77,7 @@ const Overview = () => {
         onClick={handlePrev}
         zIndex={2}
         bg="whiteAlpha.700"
-        _hover={{ bg: 'whiteAlpha.900' }}
+        _hover={{ bg: 'background.300' }}
         rounded="full"
       />
       <IconButton
@@ -80,7 +90,7 @@ const Overview = () => {
         onClick={handleNext}
         zIndex={2}
         bg="whiteAlpha.700"
-        _hover={{ bg: 'whiteAlpha.900' }}
+        _hover={{ bg: 'background.300' }}
         rounded="full"
       />
 
@@ -100,10 +110,20 @@ const Overview = () => {
         ))}
       </HStack>
 
-      <Stack w={{base: "95%", md: "748px", "xl": "80%", "3xl": "1336px" }}>
+      <Stack
+        w={{ base: '95%', md: '748px', xl: '80%', '3xl': '1336px' }}
+        h="100%"
+        zIndex={10}
+      >
         <Header />
-        <VStack gap="24px" w="100%" position="relative">
-          <Text variant="primary">Thắng</Text>
+        <VStack w="100%" maxW="834px" position="relative" alignItems="flex-start" mt="144px">
+          <Heading variant="secondary" size="4xl">
+            Cam Tươi – Trọn Vẹn Hương Vị Tự Nhiên
+          </Heading>
+          <Text variant="secondary">
+            Thưởng thức từng giọt nước cam nguyên chất, giàu vitamin C – tiếp
+            thêm năng lượng và sự tươi mới cho mỗi ngày của bạn.
+          </Text>
         </VStack>
       </Stack>
     </VStack>

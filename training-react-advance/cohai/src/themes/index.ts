@@ -8,8 +8,8 @@ export const theme = extendTheme({
   ...bases,
   components,
   fonts: {
-    heading: `'Helvetica Bold', sans-serif`,
-    body: `'Helvetica', sans-serif`,
+    heading: `'Montserrat Bold', sans-serif`,
+    body: `'Montserrat', sans-serif`,
   },
   styles: {
     global: {

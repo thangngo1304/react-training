@@ -73,3 +73,9 @@ export const SIDEBAR_LIST = [
     listItem: ACCOUNT_LIST,
   },
 ];
+
+export const NAV_ITEMS = [
+  { name: 'Trang chủ', path: '/home' },
+  { name: 'Về chúng tôi', path: '/about' },
+  { name: 'Liên hệ', path: '/contact' },
+];
