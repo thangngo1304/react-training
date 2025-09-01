@@ -2,8 +2,6 @@ import { MouseEvent, ReactElement, ReactNode } from 'react';
 import { Box, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
-import { ItemIcon } from '@/components/common';
-
 export type TNavigationProps = {
   children: ReactNode;
   leftIcon?: ReactElement;
@@ -14,7 +12,6 @@ export type TNavigationProps = {
 
 const Navigation = ({
   children,
-  leftIcon,
   isActive,
   destination = '/',
   onClick,
@@ -44,7 +41,6 @@ const Navigation = ({
           fontWeight="700"
           fontSize="sm"
         >
-          {leftIcon && <ItemIcon icon={leftIcon} isActive={isActive} />}
           {children}
         </Text>
       </Link>

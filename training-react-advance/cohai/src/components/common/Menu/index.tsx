@@ -1,11 +1,8 @@
 import { Heading, List, ListItem, VStack } from '@chakra-ui/react';
-import { Fragment, MouseEvent, ReactElement, useCallback } from 'react';
+import { ReactElement } from 'react';
 
 // Components
 import { Navigation } from '@/components';
-
-// Constants
-import { ROUTES } from '@/constants';
 
 export type TMenuItem = {
   id: number;
@@ -17,17 +14,9 @@ export type TMenuItem = {
 type TSidebarProps = {
   listItem: Array<TMenuItem>;
   title?: string;
-  onSignOut?: () => void;
 };
 
-const MenuComponent = ({ title, listItem = [], onSignOut }: TSidebarProps) => {
-  const handleSignOut = useCallback(
-    (e: MouseEvent<HTMLAnchorElement>) => {
-      e.preventDefault();
-      onSignOut && onSignOut();
-    },
-    [onSignOut],
-  );
+const MenuComponent = ({ title, listItem = [] }: TSidebarProps) => {
   return (
     <VStack w="100%">
       {title && (
@@ -37,18 +26,10 @@ const MenuComponent = ({ title, listItem = [], onSignOut }: TSidebarProps) => {
       )}
 
       <List mt={2.5} aria-label="list-icon" w="full" mb="24px" px="16px">
-        {listItem.map(({ leftIcon, destination, menuItemContent }) => {
-          const LeftIconComponent = leftIcon || Fragment;
-          const handleClick = (e: MouseEvent<HTMLAnchorElement>) =>
-            destination === ROUTES.SIGN_OUT && handleSignOut(e);
-
+        {listItem.map(({ destination, menuItemContent }) => {
           return (
             <ListItem key={menuItemContent} aria-label="item-icon">
-              <Navigation
-                destination={destination}
-                leftIcon={<LeftIconComponent />}
-                onClick={handleClick}
-              >
+              <Navigation destination={destination}>
                 {menuItemContent}
               </Navigation>
             </ListItem>

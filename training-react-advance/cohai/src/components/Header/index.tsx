@@ -1,13 +1,23 @@
 import { memo } from 'react';
-import { Heading, HStack, Text, VStack } from '@chakra-ui/react';
+import {
+  Heading,
+  HStack,
+  Stack,
+  Text,
+  useBreakpointValue,
+  VStack,
+} from '@chakra-ui/react';
 import isEqual from 'react-fast-compare';
-import { LogoIcon } from '@/icons';
 import { Link } from 'react-router-dom';
+import { LogoIcon } from '@/icons';
 import { NAV_ITEMS, ROUTES } from '@/constants';
 
 import Navbar from './NavbarItem';
+import ExpandSidebar from '../Sidebar/Expand';
 
 const Header = () => {
+  const isMobile = useBreakpointValue({ base: true, lg: false });
+
   return (
     <HStack
       w="100%"
@@ -41,7 +51,8 @@ const Header = () => {
           </Text>
         </VStack>
       </HStack>
-      <Navbar items={NAV_ITEMS} />
+
+      {isMobile ? <ExpandSidebar /> : <Navbar items={NAV_ITEMS} />}
     </HStack>
   );
 };

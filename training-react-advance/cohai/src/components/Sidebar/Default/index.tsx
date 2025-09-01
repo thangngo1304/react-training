@@ -7,18 +7,14 @@ import { LineIcon, LogoIcon } from '@/icons';
 import { SIDEBAR_LIST } from '@/constants';
 import { CardHelp, Menu } from '@/components';
 
-type TSidebarProps = {
-  onSignOut?: () => void;
-};
-
-const Sidebar = ({ onSignOut }: TSidebarProps) => (
+const Sidebar = () => (
   <VStack width="246px" pt="44px">
     <Link href="/" as="h1" mb="27.5px">
       <LogoIcon />
     </Link>
     <LineIcon />
     {SIDEBAR_LIST.map((item) => (
-      <Menu title={item.title} listItem={item.listItem} onSignOut={onSignOut} />
+      <Menu listItem={item.listItem} />
     ))}
     <CardHelp />
   </VStack>
