@@ -1,29 +1,30 @@
 import { memo } from 'react';
-import { Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react';
+import { Heading, HStack, Text, VStack } from '@chakra-ui/react';
 import isEqual from 'react-fast-compare';
 import { LogoIcon } from '@/icons';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '@/constants';
+import { NAV_ITEMS, ROUTES } from '@/constants';
+
+import Navbar from './NavbarItem';
 
 const Header = () => {
   return (
-    <Flex
+    <HStack
       w="100%"
       px="10px"
       py="5px"
       mt="20px"
-      flexDirection={{ base: 'column', md: 'row' }}
-      alignItems={{ base: 'flex-start', md: 'center' }}
+      alignItems="center"
       justifyContent="space-between"
       borderRadius="lg"
       backgroundColor="white"
       position="relative"
     >
-      <HStack>
+      <HStack alignItems="center">
         <Link to={ROUTES.HOME}>
           <LogoIcon />
         </Link>
-        <VStack alignItems="flex-start">
+        <VStack alignItems="flex-start" gap={0}>
           <Heading
             variant={'primary'}
             size={{ base: '2xl', xl: '4xl' }}
@@ -40,7 +41,8 @@ const Header = () => {
           </Text>
         </VStack>
       </HStack>
-    </Flex>
+      <Navbar items={NAV_ITEMS} />
+    </HStack>
   );
 };
 

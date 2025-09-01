@@ -18,20 +18,20 @@ export const Fonts = () => (
     styles={`
       /* latin */
       @font-face {
-        font-family: 'Helvetica';
+        font-family: 'Montserrat';
         font-style: normal;
         font-weight: 400;
         font-display: swap;
-        src: url('../../assets/fonts/Helvetica.ttf') format('truetype');
+        src: url('../../assets/fonts/Montserrat-Regular.ttf') format('truetype');
       }
       /* latin */
       @font-face {
-        font-family: 'Helvetica Bold';
+        font-family: 'Montserrat Bold';
         font-style: normal;
         font-weight: 700;
         font-display: swap;
-        src: url('../../assets/fonts/Helvetica-Bold.ttf') format('truetype');
+        src: url('../../assets/fonts/Montserrat-Bold.ttf') format('truetype');
       }
       `}
   />
-)
+);

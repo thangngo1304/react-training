@@ -1,19 +1,19 @@
 @font-face {
-  font-family: 'Helvetica';
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: normal;
   src:
-    local('Helvetica'),
-    url('./assets/fonts/Helvetica.ttf') format('truetype');
+    local('Montserrat'),
+    url('./assets/fonts/Montserrat-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Helvetica Bold';
+  font-family: 'Montserrat Bold';
   font-style: normal;
   font-weight: normal;
   src:
-    local('Helvetica Bold'),
-    url('./assets/fonts/Helvetica-Bold.ttf') format('truetype');
+    local('Montserrat Bold'),
+    url('./assets/fonts/Montserrat-Bold.ttf') format('truetype');
 }
 
 html,
