@@ -18,6 +18,7 @@ const Footer = () => {
         flexDirection={{ base: 'column', lg: 'row' }}
         w={{ base: '100%', lg: '80%' }}
         px={5}
+        justifyContent={{ base: 'initial', lg: 'center' }}
       >
         <Stack
           direction={{ base: 'column', lg: 'row' }}
