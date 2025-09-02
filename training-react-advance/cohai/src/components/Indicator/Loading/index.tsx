@@ -1,11 +1,18 @@
 // Libs
-import { Spinner as SpinnerChakra, Center } from '@chakra-ui/react';
+import { Spinner as SpinnerChakra, Flex } from '@chakra-ui/react';
 
 const LoadingIndicator = (): JSX.Element => {
   return (
-    <Center minHeight="100vh">
+    <Flex
+      alignItems="center"
+      justifyContent="center"
+      position="fixed"
+      zIndex={60}
+      pointerEvents="none"
+      inset={0}
+    >
       <SpinnerChakra />
-    </Center>
+    </Flex>
   );
 };
 

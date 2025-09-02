@@ -1,31 +1,30 @@
-import { Heading, List, ListItem, VStack } from '@chakra-ui/react';
-import { ReactElement } from 'react';
+import { List, ListItem, VStack } from '@chakra-ui/react';
 
 // Components
 import { Navigation } from '@/components';
 
 export type TMenuItem = {
-  id: number;
-  leftIcon?: () => ReactElement;
   menuItemContent?: string;
   destination: string;
 };
 
 type TSidebarProps = {
   listItem: Array<TMenuItem>;
-  title?: string;
 };
 
-const MenuComponent = ({ title, listItem = [] }: TSidebarProps) => {
+const MenuComponent = ({ listItem = [] }: TSidebarProps) => {
   return (
     <VStack w="100%">
-      {title && (
-        <Heading as="h2" w="full" fontSize="sm" mb="10px" px="22px">
-          {title}
-        </Heading>
-      )}
-
-      <List mt={2.5} aria-label="list-icon" w="full" mb="24px" px="16px">
+      <List
+        mt={2.5}
+        display="flex"
+        flexDir="column"
+        alignItems="center"
+        aria-label="list-icon"
+        w="full"
+        mb="24px"
+        px="16px"
+      >
         {listItem.map(({ destination, menuItemContent }) => {
           return (
             <ListItem key={menuItemContent} aria-label="item-icon">
