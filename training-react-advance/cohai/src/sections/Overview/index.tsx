@@ -1,9 +1,6 @@
 import {
   Box,
-  Button,
   Heading,
-  HStack,
-  IconButton,
   Stack,
   Text,
   VStack,
@@ -13,7 +10,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from '@/components';
 import { imagesOverview } from '@/constants';
 import { useEffect, useState } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 const MotionBox = motion(Box);
 
@@ -29,12 +25,6 @@ const Overview = () => {
 
   const handleNext = () => {
     setIndex((prev) => (prev + 1) % imagesOverview.length);
-  };
-
-  const handlePrev = () => {
-    setIndex(
-      (prev) => (prev - 1 + imagesOverview.length) % imagesOverview.length,
-    );
   };
 
   return (
@@ -67,57 +57,21 @@ const Overview = () => {
         zIndex={1}
       />
 
-      <IconButton
-        aria-label="Previous"
-        icon={<ChevronLeftIcon />}
-        position="absolute"
-        top="60%"
-        left="20px"
-        transform="translateY(-50%)"
-        onClick={handlePrev}
-        zIndex={11}
-        bg="whiteAlpha.700"
-        _hover={{ bg: 'background.300' }}
-        rounded="full"
-      />
-      <IconButton
-        aria-label="Next"
-        icon={<ChevronRightIcon />}
-        position="absolute"
-        top="60%"
-        right="20px"
-        transform="translateY(-50%)"
-        onClick={handleNext}
-        zIndex={11}
-        bg="whiteAlpha.700"
-        _hover={{ bg: 'background.300' }}
-        rounded="full"
-      />
-
-      <HStack position="absolute" bottom="20px" zIndex={2} spacing="8px">
-        {imagesOverview.map((_, i) => (
-          <Button
-            key={i}
-            onClick={() => setIndex(i)}
-            w="10px"
-            h="10px"
-            p={0}
-            minW="unset"
-            borderRadius="full"
-            bg={i === index ? 'white' : 'whiteAlpha.500'}
-            _hover={{ bg: 'whiteAlpha.800' }}
-          />
-        ))}
-      </HStack>
-
       <Stack
-        w={{ base: '95%', md: '748px', xl: '80%', '3xl': '1336px' }}
+        w={{ base: '100%', md: '748px', xl: '80%', '3xl': '1336px' }}
         h="100%"
         zIndex={10}
+        px="20px"
       >
         <Header />
-        <VStack w="100%" maxW="834px" position="relative" alignItems="flex-start" mt="144px">
-          <Heading variant="secondary" size="4xl">
+        <VStack
+          w="100%"
+          maxW="834px"
+          position="relative"
+          alignItems="flex-start"
+          mt="144px"
+        >
+          <Heading variant="secondary" size="4xl" lineHeight="1.3">
             Cam Tươi – Trọn Vẹn Hương Vị Tự Nhiên
           </Heading>
           <Text variant="secondary">

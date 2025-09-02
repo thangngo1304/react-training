@@ -20,7 +20,8 @@ const Header = () => {
   return (
     <HStack
       w="100%"
-      px="10px"
+      pl="10px"
+      pr="20px"
       py="5px"
       mt="20px"
       alignItems="center"

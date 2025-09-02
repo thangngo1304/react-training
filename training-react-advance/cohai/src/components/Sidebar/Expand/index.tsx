@@ -6,9 +6,13 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
+  Heading,
+  HStack,
   Link,
   Stack,
+  Text,
   useDisclosure,
+  VStack,
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 
@@ -31,11 +35,20 @@ const ExpandSidebar = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>
-            <Link href="/" as="h1" mb="27.5px">
-              <LogoIcon />
-            </Link>
+            <HStack height="fit-content" gap={0} alignItems="center">
+              <Link href="/" as="h2" p={0}>
+                <LogoIcon />
+              </Link>
+              <VStack alignItems="flex-start">
+                <Heading variant="primary" size="2xl" fontWeight="bold">
+                  Cô Hai
+                </Heading>
+                <Text variant="primary" fontWeight="600">
+                  Trái cây.
+                </Text>
+              </VStack>
+            </HStack>
           </DrawerHeader>
-
           <LineIcon />
           <DrawerBody>
             {SIDEBAR_LIST.map((item) => (

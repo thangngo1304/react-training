@@ -1,1 +1,0 @@
-import{a as e,j as r,Z as u,R as i}from"./index-DHXUM0w2.js";const n=({children:s})=>{const t=e(o=>{var a;return(a=o.user)==null?void 0:a.fields});return t!=null&&t.email?s:r.jsx(u,{to:i.SIGN_IN})};export{n as default};
