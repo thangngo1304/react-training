@@ -1,10 +1,4 @@
-import {
-  Box,
-  Heading,
-  Stack,
-  Text,
-  VStack,
-} from '@chakra-ui/react';
+import { Box, Heading, Stack, Text, VStack } from '@chakra-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Header } from '@/components';
@@ -28,7 +22,7 @@ const Overview = () => {
   };
 
   return (
-    <VStack w="100%" h="850px" position="relative">
+    <VStack w="100%" h="650px" position="relative">
       <AnimatePresence mode="wait">
         <MotionBox
           key={index}
@@ -36,7 +30,7 @@ const Overview = () => {
           top={0}
           left={0}
           w="100%"
-          h="850px"
+          h="650px"
           backgroundImage={`url(${imagesOverview[index]})`}
           backgroundSize="cover"
           backgroundPosition="center"
@@ -61,7 +55,7 @@ const Overview = () => {
         w={{ base: '100%', md: '748px', xl: '80%', '3xl': '1336px' }}
         h="100%"
         zIndex={10}
-        px="20px"
+        px={{ base: '20px', lg: '0' }}
       >
         <Header />
         <VStack

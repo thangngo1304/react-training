@@ -14,6 +14,7 @@ export { default as FetchingModal } from './Skeleton/Modal';
 export { default as LoadingIndicator } from './Indicator/Loading';
 export { default as Pagination } from './Pagination';
 export { default as ErrorBoundary } from './ErrorBoundary';
+export { default as ProductCard } from './ProductCard';
 
 // Common
 export { default as Avatar } from './common/Avatar';

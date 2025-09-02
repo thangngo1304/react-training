@@ -4,7 +4,7 @@ import { VStack } from '@chakra-ui/react';
 
 const HomePage = () => {
   return (
-    <VStack alignItems="flex-start">
+    <VStack alignItems="flex-start" gap={0}>
       <Overview />
       <Product />
       <Footer />
