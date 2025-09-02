@@ -13,16 +13,18 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <Stack w="100%" bg="gray.900" color="gray.300" py={10} alignItems="center">
+    <Stack w="100%" bg="gray.900" color="gray.300" py={5} alignItems="center">
       <Flex
-        flexDirection={{ base: 'column', lg: 'row' }}
+        flexDirection={{ base: 'column', md: 'row' }}
         w={{ base: '100%', lg: '80%' }}
         px={5}
         justifyContent={{ base: 'initial', lg: 'center' }}
+        pt="50px"
       >
         <Stack
-          direction={{ base: 'column', lg: 'row' }}
+          direction={{ base: 'column', md: 'row' }}
           spacing={{ base: 10, lg: 20 }}
+          pb={8}
           justify="space-between"
         >
           <HStack height="fit-content" alignItems="center">

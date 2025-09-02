@@ -22,7 +22,7 @@ export const colors = {
 
   border: {
     100: '#4FD1C5',
-    200: '#E2E8F0',
+    200: '#F2F2F2',
     300: '#81e6d9',
     400: '#E0E1E2',
   },
