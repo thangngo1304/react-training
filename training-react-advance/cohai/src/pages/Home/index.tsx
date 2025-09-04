@@ -5,7 +5,7 @@ import { VStack } from '@chakra-ui/react';
 
 const HomePage = () => {
   const openFacebook = () => {
-    const fbAppUrl = "fb://page/122096605682850188";
+    const fbAppUrl = "https://www.facebook.com/share/16H6gGTGaA/?mibextid=wwXIfr";
     const fbWebUrl = "https://www.facebook.com/vuacamcohai";
 
     const newWindow = window.open(fbAppUrl, "_blank");
