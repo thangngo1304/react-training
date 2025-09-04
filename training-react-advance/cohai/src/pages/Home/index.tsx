@@ -23,7 +23,7 @@ const HomePage = () => {
         <button onClick={openFacebook}>
           <FacebookIcon />
         </button>
-        <a href="https://zalo.me/0777834506" target="_blank" rel="noopener noreferrer">
+        <a href="https://zalo.me/0818528594" target="_blank" rel="noopener noreferrer">
           <ZaloIcon />
         </a>
       </VStack>
