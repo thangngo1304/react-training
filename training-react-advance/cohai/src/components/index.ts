@@ -15,6 +15,7 @@ export { default as LoadingIndicator } from './Indicator/Loading';
 export { default as Pagination } from './Pagination';
 export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as ProductCard } from './ProductCard';
+export { default as ServiceCard } from './ServiceCard';
 
 // Common
 export { default as Avatar } from './common/Avatar';

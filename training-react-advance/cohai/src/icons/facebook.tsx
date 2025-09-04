@@ -1,12 +1,30 @@
 export const FacebookIcon = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clipPath="url(#clip0_92_243)">
-      <path d="M28.9173 16C28.9173 8.87004 23.1307 3.08337 16.0007 3.08337C8.87065 3.08337 3.08398 8.87004 3.08398 16C3.08398 22.2517 7.52732 27.4571 13.4173 28.6584V19.875H10.834V16H13.4173V12.7709C13.4173 10.278 15.4452 8.25004 17.9382 8.25004H21.1673V12.125H18.584C17.8736 12.125 17.2923 12.7063 17.2923 13.4167V16H21.1673V19.875H17.2923V28.8521C23.8152 28.2063 28.9173 22.7038 28.9173 16Z" fill="#2D3748" />
-    </g>
-    <defs>
-      <clipPath id="clip0_92_243">
-        <rect width="31" height="31" fill="white" transform="translate(0.5 0.5)" />
-      </clipPath>
-    </defs>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="50px"
+    height="50px"
+    xmlSpace="preserve"
+    viewBox="0 0 40 40"
+  >
+    <linearGradient
+      id="a"
+      x1="-277.375"
+      x2="-277.375"
+      y1="406.6018"
+      y2="407.5726"
+      gradientTransform="matrix(40 0 0 -39.7778 11115.001 16212.334)"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset="0" stop-color="#0062e0" />
+      <stop offset="1" stop-color="#19afff" />
+    </linearGradient>
+    <path
+      fill="url(#a)"
+      d="M16.7 39.8C7.2 38.1 0 29.9 0 20 0 9 9 0 20 0s20 9 20 20c0 9.9-7.2 18.1-16.7 19.8l-1.1-.9h-4.4l-1.1.9z"
+    />
+    <path
+      fill="#fff"
+      d="m27.8 25.6.9-5.6h-5.3v-3.9c0-1.6.6-2.8 3-2.8H29V8.2c-1.4-.2-3-.4-4.4-.4-4.6 0-7.8 2.8-7.8 7.8V20h-5v5.6h5v14.1c1.1.2 2.2.3 3.3.3 1.1 0 2.2-.1 3.3-.3V25.6h4.4z"
+    />
   </svg>
 );

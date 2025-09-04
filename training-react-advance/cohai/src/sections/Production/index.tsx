@@ -7,13 +7,13 @@ const Production = () => {
     <VStack w="100%" backgroundColor="background.600" px="20px">
       <VStack
         w={{ base: '100%', md: '80%', '3xl': '1336px' }}
-        backgroundColor="background.200"
+        backgroundColor="background.800"
         alignItems="center"
         px="20px"
         py="40px"
         rounded={10}
         my="-40px"
-        zIndex={100}
+        zIndex={80}
       >
         <Stack w="100%">
           <VStack

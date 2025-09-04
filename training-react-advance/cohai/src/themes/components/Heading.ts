@@ -5,6 +5,7 @@ export const Heading = defineStyleConfig({
     fontFamily: 'heading',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
+    lineHeight: '1.5 !important',
   },
 
   sizes: {

@@ -22,3 +22,5 @@ export * from './signOut';
 export * from './edit';
 export * from './arrow';
 export * from './logo-chakra';
+export * from './check';
+export * from './zalo';

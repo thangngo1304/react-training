@@ -16,4 +16,32 @@ export const products = [
     unit: 'chai',
     image: imageProduct2,
   },
+  {
+    id: 3,
+    name: 'Nuớc cam',
+    price: 12000,
+    unit: 'chai',
+    image: imageProduct2,
+  },
+  {
+    id: 4,
+    name: 'Nuớc cam',
+    price: 12000,
+    unit: 'chai',
+    image: imageProduct2,
+  },
+  {
+    id: 5,
+    name: 'Nuớc cam',
+    price: 12000,
+    unit: 'chai',
+    image: imageProduct2,
+  },
+  {
+    id: 6,
+    name: 'Nuớc cam',
+    price: 12000,
+    unit: 'chai',
+    image: imageProduct2,
+  },
 ];
