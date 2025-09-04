@@ -22,7 +22,7 @@ const Overview = () => {
   };
 
   return (
-    <VStack w="100%" h="650px" position="relative">
+    <VStack w="100%" h="550px" position="relative">
       <AnimatePresence mode="wait">
         <MotionBox
           key={index}
@@ -30,7 +30,7 @@ const Overview = () => {
           top={0}
           left={0}
           w="100%"
-          h="650px"
+          h="550px"
           backgroundImage={`url(${imagesOverview[index]})`}
           backgroundSize="cover"
           backgroundPosition="center"

@@ -19,7 +19,7 @@ const ProductCard = ({ name, price, unit, image }: ProductCardProps) => (
     _hover={{ shadow: 'md' }}
     transition="0.3s"
   >
-    <Box position="relative" w="100%" h="220px">
+    <Box position="relative" w="100%" h="180px">
       <Image
         src={image}
         alt={name}
@@ -30,7 +30,7 @@ const ProductCard = ({ name, price, unit, image }: ProductCardProps) => (
         _groupHover={{ transform: 'scale(1.05)' }}
       />
     </Box>
-    <VStack p={4} alignItems="flex-start">
+    <VStack p={2} alignItems="flex-start">
       <Heading fontWeight="500">{name}</Heading>
       <Text color="text.300" fontWeight="600">
         {formatVND(price)}/{unit}
