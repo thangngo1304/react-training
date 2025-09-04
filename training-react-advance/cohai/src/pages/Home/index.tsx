@@ -2,18 +2,30 @@ import { Footer } from '@/components';
 import { FacebookIcon, ZaloIcon } from '@/icons';
 import { Overview, Product, Service } from '@/sections';
 import { VStack } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
 
 const HomePage = () => {
+  const openFacebook = () => {
+    const fbAppUrl = "fb://page/122096605682850188";
+    const fbWebUrl = "https://www.facebook.com/vuacamcohai";
+
+    const newWindow = window.open(fbAppUrl, "_blank");
+
+    setTimeout(() => {
+      if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
+        window.open(fbWebUrl, "_blank");
+      }
+    }, 800);
+  };
+
   return (
     <VStack alignItems="flex-start" gap={0}>
       <VStack position="fixed" bottom={10} right={6} zIndex={100} gap={4}>
-        <Link to="https://www.facebook.com/vuacamcohai">
+        <button onClick={openFacebook}>
           <FacebookIcon />
-        </Link>
-        <Link to="https://zalo.me/0777834506">
+        </button>
+        <a href="https://zalo.me/0777834506" target="_blank" rel="noopener noreferrer">
           <ZaloIcon />
-        </Link>
+        </a>
       </VStack>
       <Overview />
       <Product />
