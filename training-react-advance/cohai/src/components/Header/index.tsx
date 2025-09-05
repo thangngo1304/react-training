@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Heading,
   HStack,
@@ -7,12 +8,15 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import isEqual from 'react-fast-compare';
-import { Link } from 'react-router-dom';
+
+// Component
+import ExpandSidebar from '../Sidebar';
+import Navbar from './NavbarItem';
 import { LogoIcon } from '@/icons';
+
+// Constants
 import { NAV_ITEMS, ROUTES } from '@/constants';
 
-import Navbar from './NavbarItem';
-import ExpandSidebar from '../Sidebar/Expand';
 
 const Header = () => {
   const isMobile = useBreakpointValue({ base: true, lg: false });
@@ -39,14 +43,11 @@ const Header = () => {
             variant={'primary'}
             size={{ base: '2xl', xl: '4xl' }}
             fontWeight="bold"
+            fontFamily="DancingScript Bold"
           >
             Cô Hai
           </Heading>
-          <Text
-            variant="tertiary"
-            size={{ base: 'textMd', lg: 'textLg' }}
-            fontWeight="bold"
-          >
+          <Text variant="tertiary" size={{ base: 'textMd' }} fontWeight="bold">
             Trái Cây
           </Text>
         </VStack>

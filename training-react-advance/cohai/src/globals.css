@@ -16,6 +16,15 @@
     url('./assets/fonts/Montserrat-Bold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'DancingScript Bold';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local('DancingScript Bold'),
+    url('./assets/fonts/DancingScript-Bold.ttf') format('truetype');
+}
+
 html,
 body,
 #root {
