@@ -1,7 +1,7 @@
 export { default as Navigation } from './Navigation';
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
-export { default as ExpandSidebar } from './Sidebar/Expand';
+export { default as ExpandSidebar } from './Sidebar';
 export { default as Indicator } from './Indicator';
 export { default as Fetching } from './Skeleton/TableList';
 export { default as FetchingModal } from './Skeleton/Modal';
