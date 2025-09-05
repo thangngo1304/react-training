@@ -39,12 +39,13 @@ const Header = () => {
             variant={'primary'}
             size={{ base: '2xl', xl: '4xl' }}
             fontWeight="bold"
+            fontFamily="DancingScript Bold"
           >
             Cô Hai
           </Heading>
           <Text
             variant="tertiary"
-            size={{ base: 'textMd', lg: 'textLg' }}
+            size={{ base: 'textMd' }}
             fontWeight="bold"
           >
             Trái Cây
